@@ -220,33 +220,6 @@ bindcode Mod4+Mod1+Shift+11 move workspace "32: Dev2"
 bindcode Mod4+Shift+52 move scratchpad
 bindcode Mod4+52 scratchpad show
 
-## Move container to Workspaces
-#mode "wcm" {
-#    bind 10 wcm1
-#    bind 11 wcm2
-#    bind 12 wcm3
-#    bind 13 wcm4
-#    bind 14 wcm5
-#    bind 15 wcm6
-#    bind 16 wcm7
-#    bind 17 wcm8
-#    bind 18 wcm9
-#    bind 19 wcm10
-#    bind Control+10 wcm11
-#    bind Control+11 wcm12
-#    bind Control+12 wcm13
-#    bind Control+13 wcm14
-#    bind Control+14 wcm15
-#    bind Control+15 wcm16
-#    bind Control+16 wcm17
-#    bind Control+17 wcm18
-#    bind Control+18 wcm19
-#    bind Control+19 wcm20
-#    bind 9 mode default
-#    bind 58 mode default
-#}
-#bind Mod4+58 mode wcm
-
 # Mode for resizing clients
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
@@ -272,46 +245,13 @@ mode "resize" {
 }
 bindcode Mod4+43 mode "resize"
 
-## Quickstart mode
-#mode "quickstart" {
-#    bindsym f exec firefox
-#    bindsym p exec pidgin
-#    bindsym t exec thunderbird
-#    bindsym c exec clementine
-
-
-#    bindcode 9 mode "default"
-#    bindcode 24 mode "default"
-#}
-#bindcode Mod4+24 mode "quickstart"
-
 # Mode which deaktivates all bindings
 mode "passthrough" {
     bindcode Mod4+9 mode "default"
 }
 bindcode Mod4+9 mode "passthrough"; exec sh -c 'sleep 2 && i3-msg mode "default"'
 
-mode "clementine" {
-    bindsym Right exec --no-startup-id clementine -f
-    bindsym Left exec --no-startup-id clementine -r
-    bindsym space exec --no-startup-id clementine -u
-    bindsym Return exec --no-startup-id clementine -p
-    bindsym Backspace exec --no-startup-id clementine -s
-    bindsym o exec --no-startup-id clementine -o
-
-    bindsym Prior exec --no-startup-id clementine --volume-up
-    bindsym Next exec --no-startup-id clementine --volume-down
-
-    bindsym Up exec --no-startup-id clementine --seek-by 10
-    bindsym Down exec --no-startup-id clementine --seek-by -10
-
-    bindcode 9 mode "default"
-    bindcode 54 mode "default"
-}
-bindcode Mod4+54 mode "clementine"
-
-
-# Marks and Gotos
+# Marks and Gotos 
 bindcode Mod4+192 mark Fav1
 bindcode 192 [con_mark="Fav1"] focus
 bindcode Mod4+193 mark Fav2
@@ -347,7 +287,7 @@ bindcode Mod4+Shift+28 exec --no-startup-id i3-input -F 'move container to works
 bindcode Mod4+53 [class="URxvt"] focus
 
 #bindcode Mod4+Mod1+36 exec i3-input -P 'i3> '
-bindcode Mod4+Mod1+36 exec /home/mruf/bin/i3_run -fn "$dmenufonttype" -nb "$midblue" -nf "$white" -sb "$lightblue" -sf "$black" -p "i3-msg"
+bindcode Mod4+Mod1+36 exec /home/adaephon/bin/i3_run -fn "$dmenufonttype" -nb "$midblue" -nf "$white" -sb "$lightblue" -sf "$black" -p "i3-msg"
 
 # Mod4+Enter starts a new terminal
 bindcode Mod4+Shift+36 exec /usr/bin/roxterm
@@ -360,18 +300,14 @@ bindcode Mod4+26 exec --no-startup-id setsid xautolock -locknow
 
 # Mod4+p starts dmenu and launches the selected application
 # for now, we don’t have a launcher of our own.
-#bindcode Mod4+55 exec /home/mruf/bin/emenu_run -fn "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-*" -nb "#222" -nf "#888" -sb "#13e6f3" -sf "#000" -p ">>>"
-bindcode Mod4+55 exec --no-startup-id /home/mruf/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
+#bindcode Mod4+55 exec /home/adaephon/bin/emenu_run -fn "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-*" -nb "#222" -nf "#888" -sb "#13e6f3" -sf "#000" -p ">>>"
+bindcode Mod4+55 exec --no-startup-id /home/adaephon/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
 
 # Shutdown script
-bindcode Mod4+Shift+96 exec --no-startup-id /home/mruf/bin/Shutdown.sh
-
-# Start dzen2 (Mod4+Shift+b)
-#bind Mod4+Shift+56 exec i3status | dzen2 -xs 1 -w 300 -x 1380 -fn -xos4-terminus-medium-r-normal--12-120-72-72-c-60-* -h 14 -y 1034 -fg "#ffffff" -bg "#285577"
-bindcode Mod4+Shift+56 exec dzenout.pl
+bindcode Mod4+Shift+96 exec --no-startup-id /home/adaephon/bin/Shutdown.sh
 
 # Sort windows by name
-bindcode Mod4+Shift+43 exec --no-startup-id python /home/mruf/bin/i3/sortcontainer.py
+bindcode Mod4+Shift+43 exec --no-startup-id python /home/adaephon/bin/i3/sortcontainer.py
 
 # Toggle Mute, LowerVol, RaiseVol XF86Audio{Mute,LowerVolume,RaiseVolume} or Mod4+{End,Prior,Next}
 #bindsym XF86AudioMute exec amixer sset Master toggle
@@ -399,10 +335,10 @@ bindsym Control+XF86AudioRaiseVolume exec clementine_CTRL.py next
 bindsym Control+XF86AudioLowerVolume exec clementine_CTRL.py previous
 
 # switch keyboard layout to neo
-bindcode 187 exec /home/mruf/bin/asdf
+bindcode 187 exec /home/adaephon/bin/asdf
 
 # switch keyboard layout to de
-bindcode 188 exec /home/mruf/bin/uiae
+bindcode 188 exec /home/adaephon/bin/uiae
 
 # place mouse cursor in upper left corner of the window
 bindcode Mod4+40 exec xdotool getactivewindow mousemove -w '%1' 0 0
@@ -419,10 +355,6 @@ bindcode Mod4+Control+22 restart
 # Mod4+Control+Shift+Backspace exits i3
 #bindcode Mod4+Control+Shift+22 exit
 bindcode Mod4+Control+Shift+22 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -f '$dmenufonttype'"
-
-# The IPC interface allows programs like an external workspace bar
-# (i3-wsbar) or i3-msg (can be used to "remote-control" i3) to work.
-#ipc-socket ~/.i3/ipc.sock
 
 # Workspace assignment to displays
 workspace "1: INet" output DP-2
@@ -454,31 +386,6 @@ workspace 24 output DP-3
 
 workspace "32: Dev2" output DP-2
 
-#workspace 2 output DP-2 Org
-#workspace 3 output DP-2 Term
-#workspace 4 output DP-2 Term
-#workspace 5 output DP-2
-#workspace 6 output DP-2
-#workspace 11 output DP-2
-#workspace 12 output DP-2 VMPlayer
-#workspace 13 output DP-2
-#workspace 14 output DP-2
-#workspace 15 output DP-2
-#workspace 16 output DP-2
-
-#workspace 7 output DP-3 Term
-#workspace 8 output DP-3 Chat
-#workspace 9 output DP-3 CSSH
-#workspace 10 output DP-3 Prog
-#workspace 21 output DP-3
-#workspace 22 output DP-3
-#workspace 17 output DP-3
-#workspace 18 output DP-3
-#workspace 19 output DP-3
-#workspace 20 output DP-3
-#workspace 23 output DP-3
-#workspace 24 output DP-3
-
 for_window [class="^rdesktop$"] floating enable
 for_window [class="^xfreerdp"] floating enable
 for_window [title="^Event Tester$"] floating enable
@@ -503,7 +410,7 @@ bar {
     id left-bar
     tray_output DP-2
     output DP-2
-    status_command i3status --config ~/.i3status.clock.conf
+    status_command i3status --config ~/.i3/i3status.clock.conf
     colors {
         background $grey2
         statusline $grey8
@@ -519,7 +426,7 @@ bar {
     id right-bar
     tray_output None
     output DP-3
-    status_command i3status
+    status_command i3status --config ~/.i3/i3status.conf
     colors {
         background $grey2
         statusline $grey8
@@ -537,17 +444,7 @@ exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
 exec --no-startup-id urxvtd -q -f -o
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11
 exec --no-startup-id solaar
-#exec i3status | dzen2 -xs 1 -w 300 -x 1380 -fn -xos4-terminus-medium-r-normal--12-120-72-72-c-60-* -h 14 -y 1034 -fg "#ffffff" -bg "#285577"
-#exec dzenout.pl
-#exec trayer --height 16 --tint 0x000000 --transparent true --alpha 0
-
-# XXX: Automatically added a call to i3bar to provide a workspace bar
-#exec sleep 1; i3status | i3bar -d -f "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1" --color-focus-ws-bg "#285577" --color-focus-ws-fg "#ffffff" --color-active-ws-bg "#5f676a" --color-active-ws-fg "#ffffff" --color-urgent-ws-bg "#900000" --color-urgent-ws-fg "#ffffff" --color-inactive-ws-bg "$grey2" --color-inactive-ws-fg "$grey8" --color-bar-bg "$grey2" --color-bar-fg "$grey8"
 
 bindsym Mod4+Mod1+Shift+h splith; mark lastsplit
 bindsym Mod4+Mod1+Shift+m mark movethis; floating enable; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] floating disable
 
-bindsym Mod4+Mod1+a exec --no-startup-id $TEST
-
-
-for_window [class="Pcmanfm"] move workspace 18
