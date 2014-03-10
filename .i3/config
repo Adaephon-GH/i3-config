@@ -287,7 +287,7 @@ bindcode Mod4+Shift+28 exec --no-startup-id i3-input -F 'move container to works
 bindcode Mod4+53 [class="URxvt"] focus
 
 #bindcode Mod4+Mod1+36 exec i3-input -P 'i3> '
-bindcode Mod4+Mod1+36 exec /home/adaephon/bin/i3_run -fn "$dmenufonttype" -nb "$midblue" -nf "$white" -sb "$lightblue" -sf "$black" -p "i3-msg"
+bindcode Mod4+Mod1+36 exec ~/bin/i3_run -fn "$dmenufonttype" -nb "$midblue" -nf "$white" -sb "$lightblue" -sf "$black" -p "i3-msg"
 
 # Mod4+Enter starts a new terminal
 bindcode Mod4+Shift+36 exec /usr/bin/roxterm
@@ -300,14 +300,14 @@ bindcode Mod4+26 exec --no-startup-id setsid xautolock -locknow
 
 # Mod4+p starts dmenu and launches the selected application
 # for now, we don’t have a launcher of our own.
-#bindcode Mod4+55 exec /home/adaephon/bin/emenu_run -fn "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-*" -nb "#222" -nf "#888" -sb "#13e6f3" -sf "#000" -p ">>>"
-bindcode Mod4+55 exec --no-startup-id /home/adaephon/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
+#bindcode Mod4+55 exec ~/bin/emenu_run -fn "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-*" -nb "#222" -nf "#888" -sb "#13e6f3" -sf "#000" -p ">>>"
+bindcode Mod4+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
 
 # Shutdown script
-bindcode Mod4+Shift+96 exec --no-startup-id /home/adaephon/bin/Shutdown.sh
+bindcode Mod4+Shift+96 exec --no-startup-id ~/bin/Shutdown.sh
 
 # Sort windows by name
-bindcode Mod4+Shift+43 exec --no-startup-id python /home/adaephon/bin/i3/sortcontainer.py
+bindcode Mod4+Shift+43 exec --no-startup-id python ~/bin/i3/sortcontainer.py
 
 # Toggle Mute, LowerVol, RaiseVol XF86Audio{Mute,LowerVolume,RaiseVolume} or Mod4+{End,Prior,Next}
 #bindsym XF86AudioMute exec amixer sset Master toggle
@@ -335,10 +335,10 @@ bindsym Control+XF86AudioRaiseVolume exec clementine_CTRL.py next
 bindsym Control+XF86AudioLowerVolume exec clementine_CTRL.py previous
 
 # switch keyboard layout to neo
-bindcode 187 exec /home/adaephon/bin/asdf
+bindcode 187 exec ~/bin/asdf
 
 # switch keyboard layout to de
-bindcode 188 exec /home/adaephon/bin/uiae
+bindcode 188 exec ~/bin/uiae
 
 # place mouse cursor in upper left corner of the window
 bindcode Mod4+40 exec xdotool getactivewindow mousemove -w '%1' 0 0
