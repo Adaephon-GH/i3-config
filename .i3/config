@@ -73,10 +73,10 @@ bindcode Mod4+59 layout stacking
 
 # Tabbed (Mod4+-, Mod4+t)
 bindcode Mod4+61 layout tabbed
-#bindcode Mod4+29 layout tabbed
 
 # Default (Mod4+:, Mod4+b)
-bindcode Mod4+60 layout toggle split
+bindcode Mod4+60 layout splitv
+bindcode Mod4+Shift+60 layout toggle split
 
 # Toggle tiling/floating of the current window (Mod4+Shift+Space)
 bindcode Mod4+Shift+65 floating toggle
@@ -447,4 +447,3 @@ exec --no-startup-id solaar
 
 bindsym Mod4+Mod1+Shift+h splith; mark lastsplit
 bindsym Mod4+Mod1+Shift+m mark movethis; floating enable; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] floating disable
-
