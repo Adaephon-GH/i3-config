@@ -317,16 +317,16 @@ bindcode Mod4+Shift+43 exec --no-startup-id python ~/bin/i3/sortcontainer.py
 #bindcode Mod4+117 exec amixer sset Master 1-
 #bindsym XF86AudioRaiseVolume exec amixer sset Master 1+
 #bindcode Mod4+112 exec amixer sset Master 1+
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
-bindcode Mod4+115 exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -5% && killall -SIGUSR1 i3status
-bindcode Mod4+117 exec --no-startup-id pactl set-sink-volume 0 -- -5% && killall -SIGUSR1 i3status
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -1% && killall -SIGUSR1 i3status
-bindcode Mod4+Shift+117 exec --no-startup-id pactl set-sink-volume 0 -- -1% && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +5% && killall -SIGUSR1 i3status
-bindcode Mod4+112 exec --no-startup-id pactl set-sink-volume 0 -- +5% && killall -SIGUSR1 i3status
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +1% && killall -SIGUSR1 i3status
-bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume 0 -- +1% && killall -SIGUSR1 i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
+bindcode Mod4+115 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -5% && killall -SIGUSR1 i3status
+bindcode Mod4+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -5% && killall -SIGUSR1 i3status
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -1% && killall -SIGUSR1 i3status
+bindcode Mod4+Shift+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -1% && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +5% && killall -SIGUSR1 i3status
+bindcode Mod4+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +5% && killall -SIGUSR1 i3status
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +1% && killall -SIGUSR1 i3status
+bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +1% && killall -SIGUSR1 i3status
 
 # clementine Remote control
 bindsym XF86AudioPlay exec clementine_CTRL.py pause
