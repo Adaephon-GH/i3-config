@@ -57,6 +57,8 @@ workspace_auto_back_and_forth yes
 #hide outer borders
 #hide_edge_borders vertical
 
+force_focus_wrapping yes
+
 ### KEYBOARD COMMANDS ###
 
 #split
