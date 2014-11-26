@@ -39,7 +39,7 @@ client.urgent               $darkred    $lightred   $white  $lightred
 #bar.unfocused            "333333" "222222" "888888"
 #bar.urgent               "2f343a" "900000" "ffffff"
 
-new_window normal 1
+new_window normal 2
 new_float normal 2
 
 # Use Mouse+Mod4 to drag floating windows to their wanted position
@@ -448,3 +448,4 @@ exec --no-startup-id solaar
 
 bindsym Mod4+Mod1+Shift+h splith; mark lastsplit
 bindsym Mod4+Mod1+Shift+m mark movethis; floating enable; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] floating disable
+
