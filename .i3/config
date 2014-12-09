@@ -94,7 +94,7 @@ bindsym Mod4+Left focus left
 bindsym Mod4+Down focus down
 bindsym Mod4+Right focus right
 
-# Focus Container (Mod4+Mod1+g/n/r/t)
+# Focus window outside of current container (Mod4+Mod1+g/n/r/t)
 bindcode Mod4+Mod1+31 focus parent; focus up; focus child
 bindcode Mod4+Mod1+44 focus parent; focus left; focus child
 bindcode Mod4+Mod1+45 focus parent; focus down; focus child
@@ -293,7 +293,7 @@ bindcode Mod4+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype" -nb "
 # Shutdown script
 bindcode Mod4+Shift+96 exec --no-startup-id ~/bin/Shutdown.sh
 
-# Sort windows by name
+# Sort windows by name (https://faq.i3wm.org/question/3189/how-can-i-sort-windows-inside-a-container-automatically/)
 bindcode Mod4+Shift+43 exec --no-startup-id python ~/bin/i3/sortcontainer.py
 
 # Toggle Mute, LowerVol, RaiseVol XF86Audio{Mute,LowerVolume,RaiseVolume} or Mod4+{End,Prior,Next} [Pulseaudio]
