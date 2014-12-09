@@ -62,8 +62,8 @@ force_focus_wrapping yes
 ### KEYBOARD COMMANDS ###
 
 #split
-bindcode Mod4+25 split horizontal
-bindcode Mod4+30 split vertical
+bindcode Mod4+25 split horizontal; mark lastsplit
+bindcode Mod4+30 split vertical; mark lastsplit
 
 # Fullscreen (Mod4+o)
 bindcode Mod4+32 fullscreen
@@ -222,6 +222,9 @@ bindcode Mod4+Mod1+Shift+11 move workspace "32: Dev2"
 #Scratchpad create and show
 bindcode Mod4+Shift+52 move scratchpad
 bindcode Mod4+52 scratchpad show
+
+#Move the current winow to where the last split was made
+bindcode Mod4+Mod1+Shift+58 mark movethis; move scratchpad; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] scratchpad show, floating disable
 
 # Mode for resizing clients
 mode "resize" {
@@ -448,6 +451,4 @@ exec --no-startup-id urxvtd -q -f -o
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11
 exec --no-startup-id solaar
 
-bindsym Mod4+Mod1+Shift+h splith; mark lastsplit
-bindsym Mod4+Mod1+Shift+m mark movethis; floating enable; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] floating disable
 
