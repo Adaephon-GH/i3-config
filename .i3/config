@@ -1,16 +1,8 @@
-# This configuration uses Mod1 and Mod3. Make sure they are mapped properly using xev(1)
-# and xmodmap(1). Usually, Mod1 is Alt (Alt_L) and Mod3 is Windows (Super_L)
-
-#force_xinerama yes
-
-set $mod Mod4
-
-# ISO 10646 = Unicode
-#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-#set $fonttype "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1"
-set $dmenufonttype -xos4-terminus-medium-r-normal--12-120-72-72-c-60-*
 set $fonttype "pango:Terminus 9"
 font $fonttype
+# ISO 10646 = Unicode
+#set $fonttype "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1"
+set $dmenufonttype -xos4-terminus-medium-r-normal--12-120-72-72-c-60-*
 
 set $brightred  #ff4400
 set $lightred  #ff4400
@@ -30,14 +22,6 @@ client.focused_inactive     $grey3      $midblue    $white  $midblue
 client.focused              $midblue    $lightblue  $black  $midblue
 client.unfocused            $grey3      $grey2      $grey8  $grey2
 client.urgent               $darkred    $lightred   $white  $lightred
-# default colors
-#client.focused           "4c7899" "285577" "ffffff"
-#client.focused_inactive  "333333" "5f676a" "ffffff"
-#client.unfocused         "333333" "222222" "888888"
-#client.urgent            "2f343a" "900000" "ffffff"
-#bar.focused              "4c7899" "285577" "ffffff"
-#bar.unfocused            "333333" "222222" "888888"
-#bar.urgent               "2f343a" "900000" "ffffff"
 
 new_window normal 2
 new_float normal 2
@@ -48,20 +32,21 @@ floating_modifier Mod4
 # default mode
 workspace_layout stacked
 
-#default orientation
+# default orientation
 default_orientation vertical
 
-#automatic workspace back and forth
+# automatic workspace back and forth
 workspace_auto_back_and_forth yes
 
-#hide outer borders
+# hide outer borders
 #hide_edge_borders vertical
 
+# keep focus within current container 
 force_focus_wrapping yes
 
 ### KEYBOARD COMMANDS ###
 
-#split
+# split and mark
 bindcode Mod4+25 split horizontal; mark lastsplit
 bindcode Mod4+30 split vertical; mark lastsplit
 
@@ -219,11 +204,11 @@ bindcode Mod4+Mod1+Shift+21 move workspace "  "
 
 bindcode Mod4+Mod1+Shift+11 move workspace "32: Dev2"
 
-#Scratchpad create and show
+# Scratchpad create and show
 bindcode Mod4+Shift+52 move scratchpad
 bindcode Mod4+52 scratchpad show
 
-#Move the current winow to where the last split was made
+# Move the current winow to where the last split was made
 bindcode Mod4+Mod1+Shift+58 mark movethis; move scratchpad; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] scratchpad show, floating disable
 
 # Mode for resizing clients
@@ -257,7 +242,7 @@ mode "passthrough" {
 }
 bindcode Mod4+9 mode "passthrough"; exec sh -c 'sleep 2 && i3-msg mode "default"'
 
-# Marks and Gotos 
+# Marks and Gotos for special keys on the MSNEK4000
 bindcode Mod4+192 mark Fav1
 bindcode 192 [con_mark="Fav1"] focus
 bindcode Mod4+193 mark Fav2
@@ -286,11 +271,9 @@ bindcode Mod4+58 exec --no-startup-id i3-input -F 'mark %s ' -l 1 -P 'Mark: '
 # Read 1 character and go to the window with the character
 bindcode Mod4+57 exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
-#Endless workspaces
+# Endless workspaces
 bindcode Mod4+28 exec --no-startup-id i3-input -F 'workspace %s' -l 8 -P 'Workspace: '
 bindcode Mod4+Shift+28 exec --no-startup-id i3-input -F 'move container to workspace %s' -l 8 -P 'Move to workspace: '
-
-bindcode Mod4+53 [class="URxvt"] focus
 
 #bindcode Mod4+Mod1+36 exec i3-input -P 'i3> '
 bindcode Mod4+Mod1+36 exec ~/bin/i3_run -fn "$dmenufonttype" -nb "$midblue" -nf "$white" -sb "$lightblue" -sf "$black" -p "i3-msg"
@@ -302,11 +285,9 @@ bindcode Mod4+36 exec /usr/bin/urxvtc
 # Mod4+l starts screenlock
 #bindcode Mod4+26 exec setsid xscreensaver-command -lock
 bindcode Mod4+26 exec --no-startup-id setsid xautolock -locknow
-#bindcode Mod4+Shift+26 exec --no-startup-id xautolock -toggle
+bindcode Mod4+Shift+26 exec --no-startup-id xautolock -toggle
 
 # Mod4+p starts dmenu and launches the selected application
-# for now, we don’t have a launcher of our own.
-#bindcode Mod4+55 exec ~/bin/emenu_run -fn "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-*" -nb "#222" -nf "#888" -sb "#13e6f3" -sf "#000" -p ">>>"
 bindcode Mod4+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
 
 # Shutdown script
@@ -315,13 +296,7 @@ bindcode Mod4+Shift+96 exec --no-startup-id ~/bin/Shutdown.sh
 # Sort windows by name
 bindcode Mod4+Shift+43 exec --no-startup-id python ~/bin/i3/sortcontainer.py
 
-# Toggle Mute, LowerVol, RaiseVol XF86Audio{Mute,LowerVolume,RaiseVolume} or Mod4+{End,Prior,Next}
-#bindsym XF86AudioMute exec amixer sset Master toggle
-#bindcode Mod4+115 exec amixer sset Master toggle
-#bindsym XF86AudioLowerVolume exec amixer sset Master 1-
-#bindcode Mod4+117 exec amixer sset Master 1-
-#bindsym XF86AudioRaiseVolume exec amixer sset Master 1+
-#bindcode Mod4+112 exec amixer sset Master 1+
+# Toggle Mute, LowerVol, RaiseVol XF86Audio{Mute,LowerVolume,RaiseVolume} or Mod4+{End,Prior,Next} [Pulseaudio]
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
 bindcode Mod4+115 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -5% && killall -SIGUSR1 i3status
@@ -359,7 +334,6 @@ bindcode Mod4+22 reload
 bindcode Mod4+Control+22 restart
 
 # Mod4+Control+Shift+Backspace exits i3
-#bindcode Mod4+Control+Shift+22 exit
 bindcode Mod4+Control+Shift+22 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -f '$dmenufonttype'"
 
 # Workspace assignment to displays
@@ -399,12 +373,9 @@ for_window [class="jetbrains-pycharm" title="(Find|Changes)"] floating disable
 for_window [title="^Add Host\(s\) or Cluster\(s\)"] floating enable
 
 # Client assignments to workspaces
-#assign "DialogBox" ~
 assign [class="^Firefox$"] 1: INet
 #assign [class="^Thunderbird$"] 2: Mail
 assign [class="^Pidgin$"] 3: Chat
-#assign "XTerm/CSSH" 9
-#assign "Cssh/CSSH" 9
 assign [class="^Clementine$"] 16
 assign [class="^Vmware$"] 12: Virt
 assign [class="jetbrains-pycharm" title="(Find|Changes)"] 32: Dev2
@@ -443,7 +414,7 @@ bar {
     }
 }
 
-
+# Autostart applications
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id ~/bin/start_xautolock.sh
 exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
