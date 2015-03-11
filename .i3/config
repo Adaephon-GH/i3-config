@@ -51,10 +51,10 @@ bindcode Mod4+25 split horizontal; mark lastsplit
 bindcode Mod4+30 split vertical; mark lastsplit
 
 # Fullscreen (Mod4+o)
-bindcode Mod4+32 fullscreen
+bindcode Mod4+32 fullscreen toggle
 
 # Global Fullscreen (Mod4+Shift+o)
-bindcode Mod4+Shift+32 fullscreen global
+bindcode Mod4+Shift+32 fullscreen toggle global
 
 # Stacking (Mod4+,, Mod4+g)
 bindcode Mod4+59 layout stacking
@@ -421,5 +421,4 @@ exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
 exec --no-startup-id urxvtd -q -f -o
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11
 exec --no-startup-id solaar
-
 
