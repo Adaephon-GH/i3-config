@@ -110,12 +110,28 @@ bindsym Mod4+Mod1+Left focus parent; focus left; focus child
 bindsym Mod4+Mod1+Down focus parent; focus down; focus child
 bindsym Mod4+Mod1+Right focus parent; focus right; focus child
 
+# Switch through outputs (Mod4+^)
+bindcode Mod4+49 focus output right
+bindcode Mod4+Shift+49 focus output left
 # move to left or right output (Mod4+Control+n/t)
 bindcode Mod4+Control+44 move output left
 bindcode Mod4+Control+46 move output right
 # (alternatively, you can use the cursor keys:)
 bindsym Mod4+Control+Left move output left
 bindsym Mod4+Control+Right move output right
+
+# Direct access to outputs (Mod4+i/a/e)[Mod4+s/d/f]
+bindcode Mod4+39 focus output $DISP0
+bindcode Mod4+40 focus output $DISP1
+bindcode Mod4+41 focus output $DISP2
+# Move container to specific output (Mod4+Shift+i/a/e)[Mod4+Shift+s/d/f]
+bindcode Mod4+Shift+39 move container to output $DISP0
+bindcode Mod4+Shift+40 move container to output $DISP1
+bindcode Mod4+Shift+41 move container to output $DISP2
+# Move workspace to specific output (Mod4+Alt+i/a/e)[Mod4+Alt+s/d/f]
+bindcode Mod4+Mod1+39 move workspace to output $DISP0
+bindcode Mod4+Mod1+40 move workspace to output $DISP1
+bindcode Mod4+Mod1+41 move workspace to output $DISP2
 
 # Move (Mod4+Shift+g/n/r/t)
 bindcode Mod4+Shift+31 move up
@@ -128,7 +144,7 @@ bindsym Mod4+Shift+Left move left
 bindsym Mod4+Shift+Down move down
 bindsym Mod4+Shift+Right move right
 
-# Move Container (Mod4+Mod1+Shift+g/n/r/t)
+# Move Container (Mod4+Mod1+Shift+g/n/r/t)[Mod4+Mod1+Shift+i/j/k/l]
 bindcode Mod5+Mod1+Shift+31 focus parent; move up; focus child
 bindcode Mod4+Mod1+Shift+44 focus parent; move left; focus child
 bindcode Mod4+Mod1+Shift+45 focus parent; move down; focus child
@@ -172,9 +188,6 @@ bindcode Mod4+Mod1+17 workspace "8: Dev"; workspace"32: Dev2"
 
 # Toggle workspaces (Mod4+Tab)
 bindcode Mod4+23 workspace back_and_forth
-# Toggle outputs (Mod4+^)
-bindcode Mod4+49 focus output right
-bindcode Mod4+Shift+49 focus output left
 
 # Cycle through workspaces (Mod4+Control+Tab, Mod4+Shift+Tab)
 bindcode Mod4+Control+23 workspace next
@@ -328,7 +341,7 @@ bindcode 187 exec ~/bin/asdf
 bindcode 188 exec ~/bin/uiae
 
 # place mouse cursor in upper left corner of the window
-bindcode Mod4+40 exec xdotool getactivewindow mousemove -w '%1' 0 0
+bindcode Mod4+24 exec xdotool getactivewindow mousemove -w '%1' 0 0
 
 # Mod4+Shift+c kills the current client
 bindcode Mod4+Shift+27 kill
