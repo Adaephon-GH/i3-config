@@ -1,3 +1,6 @@
+## comments for keybindings indicate keys on two layouts:
+## (de neo)[de nodeadkeys]
+
 set $fonttype "pango:Terminus 9"
 font $fonttype
 # ISO 10646 = Unicode
@@ -31,7 +34,7 @@ client.urgent               $darkred    $lightred   $white  $lightred
 new_window normal 2
 new_float normal 2
 
-# Use Mouse+Mod4 to drag floating windows to their wanted position
+# Use Super+Mouse to drag floating windows to their wanted position
 floating_modifier Mod4
 
 # default mode
@@ -51,44 +54,45 @@ force_focus_wrapping yes
 
 ### KEYBOARD COMMANDS ###
 
-# split and mark
+# split and mark (Super+v/h)[Super+w/u]
 bindcode Mod4+25 split horizontal; mark lastsplit
 bindcode Mod4+30 split vertical; mark lastsplit
 
-# Fullscreen (Mod4+o)
+# Fullscreen (Super+o)[Super+f]
 bindcode Mod4+32 fullscreen toggle
 
-# Global Fullscreen (Mod4+Shift+o)
+# Global Fullscreen (Super+Shift+f)[Super+Shift+o]
 bindcode Mod4+Shift+32 fullscreen toggle global
 
-# Stacking (Mod4+,, Mod4+g)
+# Stacking (Super+,)[Super+,]
 bindcode Mod4+59 layout stacking
 
-# Tabbed (Mod4+-, Mod4+t)
+# Tabbed (Super+j)[Super+-]
 bindcode Mod4+61 layout tabbed
 
-# Default (Mod4+:, Mod4+b)
+# Vertical Split (Super+.)[Super+.]
 bindcode Mod4+60 layout splitv
+# Toggle Split (Super+Shift+.)[Super+Shift+.]
 bindcode Mod4+Shift+60 layout toggle split
 
-# Toggle tiling/floating of the current window (Mod4+Shift+Space)
+# Toggle tiling/floating of the current window (Super+Shift+Space)[Super+Shift+Space]
 bindcode Mod4+Shift+65 floating toggle
 
 # Go into the tiling layer / floating layer, depending on whether
-# the current window is tiling / floating (Mod4+Space)
+# the current window is tiling / floating (Super+Space)[Super+Space]
 bindcode Mod4+65 focus mode_toggle
 
-# Hide all floating Windows
-# XXX: migration script could not handle command: bind Mod4+Control+65 H
-
+# Focus latest urgent windows (Super+u)[Super+a]
 bindcode Mod4+38 [urgent="latest"] focus
+# Focus latest urgent windows (Super+Shift+u)[Super+Shift+a]
 bindcode Mod4+Shift+38 [urgent="oldest"] focus
 
-# Focus child (Mod4+h), Focus parent (Mod4+z)
+# Focus parent (Super+q)[Super+p]
 bindcode Mod4+33 focus parent
+# Focus child (Super+d)[Super+ö]
 bindcode Mod4+47 focus child
 
-# Focus (Mod4+g/n/r/t)
+# Focus (Super+g/n/r/t)[Super+i/j/k/l]
 bindcode Mod4+31 focus up
 bindcode Mod4+44 focus left
 bindcode Mod4+45 focus down
@@ -99,7 +103,7 @@ bindsym Mod4+Left focus left
 bindsym Mod4+Down focus down
 bindsym Mod4+Right focus right
 
-# Focus window outside of current container (Mod4+Mod1+g/n/r/t)
+# Focus window outside of current container (Super+Alt+g/n/r/t)[Super+Alt+i/j/k/l]
 bindcode Mod4+Mod1+31 focus parent; focus up; focus child
 bindcode Mod4+Mod1+44 focus parent; focus left; focus child
 bindcode Mod4+Mod1+45 focus parent; focus down; focus child
@@ -110,30 +114,30 @@ bindsym Mod4+Mod1+Left focus parent; focus left; focus child
 bindsym Mod4+Mod1+Down focus parent; focus down; focus child
 bindsym Mod4+Mod1+Right focus parent; focus right; focus child
 
-# Switch through outputs (Mod4+^)
+# Switch through outputs (Super+^)[Super+^]
 bindcode Mod4+49 focus output right
 bindcode Mod4+Shift+49 focus output left
-# move to left or right output (Mod4+Control+n/t)
+# move to left or right output (Super+Control+n/t)[Super+Control+j/l]
 bindcode Mod4+Control+44 move output left
 bindcode Mod4+Control+46 move output right
 # (alternatively, you can use the cursor keys:)
 bindsym Mod4+Control+Left move output left
 bindsym Mod4+Control+Right move output right
 
-# Direct access to outputs (Mod4+i/a/e)[Mod4+s/d/f]
+# Direct access to outputs (Super+i/a/e)[Super+s/d/f]
 bindcode Mod4+39 focus output $DISP0
 bindcode Mod4+40 focus output $DISP1
 bindcode Mod4+41 focus output $DISP2
-# Move container to specific output (Mod4+Shift+i/a/e)[Mod4+Shift+s/d/f]
+# Move container to specific output (Super+Shift+i/a/e)[Super+Shift+s/d/f]
 bindcode Mod4+Shift+39 move container to output $DISP0
 bindcode Mod4+Shift+40 move container to output $DISP1
 bindcode Mod4+Shift+41 move container to output $DISP2
-# Move workspace to specific output (Mod4+Alt+i/a/e)[Mod4+Alt+s/d/f]
+# Move workspace to specific output (Super+Alt+i/a/e)[Super+Alt+s/d/f]
 bindcode Mod4+Mod1+39 move workspace to output $DISP0
 bindcode Mod4+Mod1+40 move workspace to output $DISP1
 bindcode Mod4+Mod1+41 move workspace to output $DISP2
 
-# Move (Mod4+Shift+g/n/r/t)
+# Move (Super+Shift+g/n/r/t)[Super+Shift+i/j/k/l]
 bindcode Mod4+Shift+31 move up
 bindcode Mod4+Shift+44 move left
 bindcode Mod4+Shift+45 move down
@@ -144,8 +148,8 @@ bindsym Mod4+Shift+Left move left
 bindsym Mod4+Shift+Down move down
 bindsym Mod4+Shift+Right move right
 
-# Move Container (Mod4+Mod1+Shift+g/n/r/t)[Mod4+Mod1+Shift+i/j/k/l]
-bindcode Mod5+Mod1+Shift+31 focus parent; move up; focus child
+# Move Container (Super+Alt+Shift+g/n/r/t)[Super+Alt+Shift+i/j/k/l]
+bindcode Mod4+Mod1+Shift+31 focus parent; move up; focus child
 bindcode Mod4+Mod1+Shift+44 focus parent; move left; focus child
 bindcode Mod4+Mod1+Shift+45 focus parent; move down; focus child
 bindcode Mod4+Mod1+Shift+46 focus parent; move right; focus child
@@ -155,7 +159,7 @@ bindsym Mod4+Mod1+Shift+Left focus parent; move left; focus child
 bindsym Mod4+Mod1+Shift+Down focus parent; move down; focus child
 bindsym Mod4+Mod1+Shift+Right focus parent; move right; focus child
 
-# Workspaces (Mod4+1/2/…)
+# Workspaces (Super+1/2/…)[Super+1/2/_]
 bindcode Mod4+10 workspace 1: INet
 bindcode Mod4+11 workspace 2: Mail
 bindcode Mod4+12 workspace 3: Chat
@@ -186,14 +190,14 @@ bindcode Mod4+Mod1+21 workspace "  "
 bindcode Mod4+Mod1+11 workspace "32: Dev2"
 bindcode Mod4+Mod1+17 workspace "8: Dev"; workspace"32: Dev2"
 
-# Toggle workspaces (Mod4+Tab)
+# Toggle workspaces (Super+Tab)[Super+Tab]
 bindcode Mod4+23 workspace back_and_forth
 
-# Cycle through workspaces (Mod4+Control+Tab, Mod4+Shift+Tab)
+# Cycle through workspaces (Super+Control/Shift+Tab)[Super+Control/Shift+Tab]
 bindcode Mod4+Control+23 workspace next
 bindcode Mod4+Shift+23 workspace prev
 
-# Move to Workspaces
+# Move to Workspaces (Super+Shift+1/2/_)[Super+Shift+1/2/_]
 bindcode Mod4+Shift+10 move workspace 1: INet
 bindcode Mod4+Shift+11 move workspace 2: Mail
 bindcode Mod4+Shift+12 move workspace 3: Chat
@@ -223,12 +227,13 @@ bindcode Mod4+Mod1+Shift+21 move workspace "  "
 
 bindcode Mod4+Mod1+Shift+11 move workspace "32: Dev2"
 
-# Scratchpad create and show
+# Scratchpad create (Super+Shift+ü)[Super+Shift+y]
 bindcode Mod4+Shift+52 move scratchpad
+# Scratchpad show (Super+ü)[Super+y]
 bindcode Mod4+52 scratchpad show
 
-# Move the current winow to where the last split was made (Super+Alt+Shift+m)
-bindcode Mod4+Mod1+Shift+58 mark movethis; move scratchpad; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] scratchpad show, floating disable
+# Move the current winow to where the last split was made (Super+Shift+m)[Super+Shift+m]
+bindcode Mod4+Shift+58 mark movethis; move scratchpad; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] scratchpad show, floating disable
 
 # Mode for resizing clients
 mode "resize" {
@@ -238,6 +243,8 @@ mode "resize" {
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
+
+    # (g/n/r/t)[i/j/k/l]
     bindcode 44         resize shrink width 10 px or 10 ppt
     bindcode 31         resize grow height 10 px or 10 ppt
     bindcode 45         resize shrink height 10 px or 10 ppt
@@ -253,12 +260,14 @@ mode "resize" {
     bindcode 9 mode "default"
     bindcode 43 mode "default"
 }
+# Enter resize mode (Super+s)[Super+h]
 bindcode Mod4+43 mode "resize"
 
 # Mode which deaktivates all bindings
 mode "passthrough" {
     bindcode Mod4+9 mode "default"
 }
+# Enter passthrough mode (Super+Escape)[Super+Escape]
 bindcode Mod4+9 mode "passthrough"; exec sh -c 'sleep 2 && i3-msg mode "default"'
 
 # Marks and Gotos for special keys on the MSNEK4000
@@ -283,48 +292,54 @@ bindcode 164 [con_mark="Star"] focus
 bindcode Mod4+148 mark Calc
 bindcode 148 [con_mark="Calc"] focus
 
-
-# Read 1 character and mark the current window with this character (Super+m)
+# Read 1 character and mark the current window with this character (Super+m)[Super+m]
 bindcode Mod4+58 exec --no-startup-id i3-input -F 'mark %s ' -l 1 -P 'Mark: '
 
-# Read 1 character and go to the window with the character
+# Read 1 character and go to the window with the character (Super+b)[Super+n]
 bindcode Mod4+57 exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
-# Endless workspaces
+# Go to/create workspace with arbitrary name (Super+w)[Super+t]
 bindcode Mod4+28 exec --no-startup-id i3-input -F 'workspace %s' -l 8 -P 'Workspace: '
+# Move to workspace with arbitrary name (Super+Shift+w)[Super+Shift+t]
 bindcode Mod4+Shift+28 exec --no-startup-id i3-input -F 'move container to workspace %s' -l 8 -P 'Move to workspace: '
 
-#bindcode Mod4+Mod1+36 exec i3-input -P 'i3> '
+# Run arbitrary i3 command (Super+Alt+Return)[Super+Alt+Return]
 bindcode Mod4+Mod1+36 exec ~/bin/i3_run -fn "$dmenufonttype" -nb "$midblue" -nf "$white" -sb "$lightblue" -sf "$black" -p "i3-msg"
 
-# Mod4+Enter starts a new terminal
-bindcode Mod4+Shift+36 exec /usr/bin/roxterm
+# Open urxvt (Super+Return)[Super+Return]
 bindcode Mod4+36 exec /usr/bin/urxvtc
+# Open roxterm (Super+Shift+Return)[Super+Shift+Return]
+bindcode Mod4+Shift+36 exec /usr/bin/roxterm
 
-# Mod4+l starts screenlock
-#bindcode Mod4+26 exec setsid xscreensaver-command -lock
+# Lock screen (Super+l)[Super+e]
 bindcode Mod4+26 exec --no-startup-id setsid xautolock -locknow
+# Toggle automatic screenlock (Super+Shift+l)[Super+Shift+e]
 bindcode Mod4+Shift+26 exec --no-startup-id xautolock -toggle
 
-# Mod4+p starts dmenu and launches the selected application
+# Start dmenu application launcher (Super+p)[Super+v]
 bindcode Mod4+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
 
-# Shutdown script
+# Open shutdown menu (Super+Shift+F12)[Super+Shift+F12]
 bindcode Mod4+Shift+96 exec --no-startup-id ~/bin/Shutdown.sh
 
-# Sort windows by name (https://faq.i3wm.org/question/3189/how-can-i-sort-windows-inside-a-container-automatically/)
+# Sort windows by name (https://faq.i3wm.org/question/3189/how-can-i-sort-windows-inside-a-container-automatically/) (Super+Shift+s)[Super+Shift+h]
 bindcode Mod4+Shift+43 exec --no-startup-id python ~/bin/i3/sortcontainer.py
 
 # Toggle Mute, LowerVol, RaiseVol XF86Audio{Mute,LowerVolume,RaiseVolume} or Mod4+{End,Prior,Next} [Pulseaudio]
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
+# (Super+End)[Super+End]
 bindcode Mod4+115 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -5% && killall -SIGUSR1 i3status
+# (Super+PgDown)[Super+PgDown]
 bindcode Mod4+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -5% && killall -SIGUSR1 i3status
 bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -1% && killall -SIGUSR1 i3status
+# (Super+Shift+PgDown)[Super+Shift+PgDown]
 bindcode Mod4+Shift+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -1% && killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +5% && killall -SIGUSR1 i3status
+# (Super+PgUp)[Super+PgUp]
 bindcode Mod4+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +5% && killall -SIGUSR1 i3status
 bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +1% && killall -SIGUSR1 i3status
+# (Super+Shift+PgUp)[Super+Shift+PgUp]
 bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +1% && killall -SIGUSR1 i3status
 
 # clementine Remote control
@@ -334,25 +349,26 @@ bindsym Control+XF86AudioPlay exec clementine_CTRL.py osd
 bindsym Control+XF86AudioRaiseVolume exec clementine_CTRL.py next
 bindsym Control+XF86AudioLowerVolume exec clementine_CTRL.py previous
 
-# switch keyboard layout to neo
+# switch keyboard layout to neo on MNEK4000 (Super+KP_()[Super+KP_(]
 bindcode 187 exec ~/bin/asdf
 
-# switch keyboard layout to de
+# switch keyboard layout to de on MNEK4000 (Super+KP_))[Super+KP_)]
 bindcode 188 exec ~/bin/uiae
 
-# place mouse cursor in upper left corner of the window
+# place mouse cursor in upper left corner of the window (Super+x)[Super+q]
 bindcode Mod4+24 exec xdotool getactivewindow mousemove -w '%1' 0 0
 
-# Mod4+Shift+c kills the current client
+# Kill current client(s) (Super+Shift+c)[Super+Shift+r]
 bindcode Mod4+Shift+27 kill
 
-# Mod4+Shift+3 reloads i3 configuration
+# Reload configuration (Super+Backspace)[Super+Backspace]
 bindcode Mod4+22 reload
 
-# Mod4+Control+Shift+r restarts i3 inplace
+
+# Restart i3 in place (Super+Control+Backspace)[Super+Control+Backspace]
 bindcode Mod4+Control+22 restart
 
-# Mod4+Control+Shift+Backspace exits i3
+# Exit i3 (Super+Control+Shift+Backspace)[Super+Control+Shift+Backspace]
 bindcode Mod4+Control+Shift+22 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -f '$dmenufonttype'"
 
 # Workspace assignment to displays
