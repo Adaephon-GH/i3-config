@@ -214,7 +214,7 @@ bindcode Mod4+Mod1+Shift+11 move workspace "32: Dev2"
 bindcode Mod4+Shift+52 move scratchpad
 bindcode Mod4+52 scratchpad show
 
-# Move the current winow to where the last split was made
+# Move the current winow to where the last split was made (Super+Alt+Shift+m)
 bindcode Mod4+Mod1+Shift+58 mark movethis; move scratchpad; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] scratchpad show, floating disable
 
 # Mode for resizing clients
@@ -271,7 +271,7 @@ bindcode Mod4+148 mark Calc
 bindcode 148 [con_mark="Calc"] focus
 
 
-# Read 1 character and mark the current window with this character
+# Read 1 character and mark the current window with this character (Super+m)
 bindcode Mod4+58 exec --no-startup-id i3-input -F 'mark %s ' -l 1 -P 'Mark: '
 
 # Read 1 character and go to the window with the character
