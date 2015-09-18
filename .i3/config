@@ -4,6 +4,11 @@ font $fonttype
 #set $fonttype "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1"
 set $dmenufonttype -xos4-terminus-medium-r-normal--12-120-72-72-c-60-*
 
+set $DISP0 GPU-0.DP-2
+set $DISP1 GPU-0.DP-3
+set $DISP2 GPU-1.DP-0
+
+
 set $brightred  #ff4400
 set $lightred  #ff4400
 set $darkred    #5c1800
@@ -168,7 +173,8 @@ bindcode Mod4+Mod1+17 workspace "8: Dev"; workspace"32: Dev2"
 # Toggle workspaces (Mod4+Tab)
 bindcode Mod4+23 workspace back_and_forth
 # Toggle outputs (Mod4+^)
-bindcode Mod4+49 focus output left
+bindcode Mod4+49 focus output right
+bindcode Mod4+Shift+49 focus output left
 
 # Cycle through workspaces (Mod4+Control+Tab, Mod4+Shift+Tab)
 bindcode Mod4+Control+23 workspace next
@@ -337,34 +343,36 @@ bindcode Mod4+Control+22 restart
 bindcode Mod4+Control+Shift+22 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -f '$dmenufonttype'"
 
 # Workspace assignment to displays
-workspace "1: INet" output DP-2
-workspace "2: Mail" output DP-2
-workspace "3: Chat" output DP-2
-workspace "4: Term" output DP-2
-workspace 5 output DP-2
-workspace 6 output DP-2
-workspace 11 output DP-2
-workspace "12: Virt" output DP-2
-workspace 13 output DP-2
-workspace 14 output DP-2
-workspace 15 output DP-2
-workspace 16 output DP-2
-workspace " " output DP-2
+workspace "1: INet" output $DISP0
+workspace "2: Mail" output $DISP0
+workspace "3: Chat" output $DISP0
+workspace "4: Term" output $DISP0
+workspace 5 output $DISP0
+workspace 6 output $DISP0
+workspace 11 output $DISP0
+workspace "12: Virt" output $DISP0
+workspace 13 output $DISP0
+workspace 14 output $DISP0
+workspace 15 output $DISP0
+workspace 16 output $DISP0
+workspace " " output $DISP0
 
-workspace "7: Edit" output DP-3
-workspace "8: Dev" output DP-3
-workspace "9: Sys" output DP-3
-workspace "10: Term" output DP-3
-workspace 21 output DP-3
-workspace 22 output DP-3
-workspace 17 output DP-3
-workspace 18 output DP-3
-workspace 19 output DP-3
-workspace 20 output DP-3
-workspace 23 output DP-3
-workspace 24 output DP-3
+workspace "7: Edit" output $DISP1
+workspace "8: Dev" output $DISP1
+workspace "9: Sys" output $DISP1
+workspace "10: Term" output $DISP1
+workspace 21 output $DISP1
+workspace 22 output $DISP1
+workspace 17 output $DISP1
+workspace 18 output $DISP1
+workspace 19 output $DISP1
+workspace 20 output $DISP1
+workspace 23 output $DISP1
+workspace 24 output $DISP1
 
-workspace "32: Dev2" output DP-2
+workspace "32: Dev2" output $DISP0
+
+workspace "monitor" output $DISP2
 
 for_window [class="^rdesktop$"] floating enable
 for_window [class="^xfreerdp"] floating enable
@@ -378,15 +386,15 @@ assign [class="^Firefox$"] 1: INet
 assign [class="^Pidgin$"] 3: Chat
 assign [class="^Clementine$"] 16
 assign [class="^Vmware$"] 12: Virt
-assign [class="jetbrains-pycharm" title="(Find|Changes)"] 32: Dev2
-assign [class="jetbrains-pycharm"] 8: Dev
+#assign [class="jetbrains-pycharm" title="(Find|Changes)"] 32: Dev2
+#assign [class="jetbrains-pycharm"] 8: Dev
 
 
 # left bar
 bar {
     id left-bar
-    tray_output DP-2
-    output DP-2
+    tray_output $DISP0
+    output $DISP0
     status_command i3status --config ~/.i3/i3status.clock.conf
     colors {
         background $grey2
@@ -402,8 +410,22 @@ bar {
 bar {
     id right-bar
     tray_output None
-    output DP-3
+    output $DISP1
     status_command i3status --config ~/.i3/i3status.conf
+    colors {
+        background $grey2
+        statusline $grey8
+        focused_workspace $midblue $lightblue $black
+        inactive_workspace $grey3 $grey2 $grey8
+        active_workspace $grey $midblue $white
+        urgent_workspace $darkred $lightred $white
+    }
+}
+
+bar {
+    id extra-bar
+    tray_output None
+    output $DISP2
     colors {
         background $grey2
         statusline $grey8
