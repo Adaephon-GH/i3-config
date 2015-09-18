@@ -371,6 +371,8 @@ bindcode Mod4+Control+22 restart
 # Exit i3 (Super+Control+Shift+Backspace)[Super+Control+Shift+Backspace]
 bindcode Mod4+Control+Shift+22 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -f '$dmenufonttype'"
 
+#### WORKSPACE SETTINGS ####
+
 # Workspace assignment to displays
 workspace "1: INet" output $DISP0
 workspace "2: Mail" output $DISP0
@@ -403,12 +405,6 @@ workspace "32: Dev2" output $DISP0
 
 workspace "monitor" output $DISP2
 
-for_window [class="^rdesktop$"] floating enable
-for_window [class="^xfreerdp"] floating enable
-for_window [title="^Event Tester$"] floating enable
-for_window [class="jetbrains-pycharm" title="(Find|Changes)"] floating disable
-for_window [title="^Add Host\(s\) or Cluster\(s\)"] floating enable
-
 # Client assignments to workspaces
 assign [class="^Firefox$"] 1: INet
 #assign [class="^Thunderbird$"] 2: Mail
@@ -418,6 +414,7 @@ assign [class="^Vmware$"] 12: Virt
 #assign [class="jetbrains-pycharm" title="(Find|Changes)"] 32: Dev2
 #assign [class="jetbrains-pycharm"] 8: Dev
 
+#### I3BAR SETTINGS ####
 
 # left bar
 bar {
@@ -435,7 +432,7 @@ bar {
     }
 }
 
-# right bar
+# middle bar
 bar {
     id right-bar
     tray_output None
@@ -451,6 +448,7 @@ bar {
     }
 }
 
+# right bar
 bar {
     id extra-bar
     tray_output None
@@ -465,7 +463,9 @@ bar {
     }
 }
 
-# Autostart applications
+
+#### AUTOSTART ####
+
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id ~/bin/start_xautolock.sh
 exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
@@ -473,3 +473,10 @@ exec --no-startup-id urxvtd -q -f -o
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11
 exec --no-startup-id solaar
 
+#### SETTINGS FOR SPECIFIC WINDOWS ####
+
+for_window [class="^rdesktop$"] floating enable
+for_window [class="^xfreerdp"] floating enable
+for_window [title="^Event Tester$"] floating enable
+for_window [class="jetbrains-pycharm" title="(Find|Changes)"] floating disable
+for_window [title="^Add Host\(s\) or Cluster\(s\)"] floating enable
