@@ -437,7 +437,7 @@ bar {
 }
 
 # Autostart applications
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id ~/bin/start_xautolock.sh
 exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
 exec --no-startup-id urxvtd -q -f -o
