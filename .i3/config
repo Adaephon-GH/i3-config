@@ -425,9 +425,10 @@ bar {
     colors {
         background $grey2
         statusline $grey8
+        separator $midblue
         focused_workspace $midblue $lightblue $black
-        inactive_workspace $grey3 $grey2 $grey8
         active_workspace $grey $midblue $white
+        inactive_workspace $grey3 $grey2 $grey8
         urgent_workspace $darkred $lightred $white
     }
 }
@@ -441,9 +442,10 @@ bar {
     colors {
         background $grey2
         statusline $grey8
+        separator $midblue
         focused_workspace $midblue $lightblue $black
-        inactive_workspace $grey3 $grey2 $grey8
         active_workspace $grey $midblue $white
+        inactive_workspace $grey3 $grey2 $grey8
         urgent_workspace $darkred $lightred $white
     }
 }
@@ -456,9 +458,10 @@ bar {
     colors {
         background $grey2
         statusline $grey8
+        separator $midblue
         focused_workspace $midblue $lightblue $black
-        inactive_workspace $grey3 $grey2 $grey8
         active_workspace $grey $midblue $white
+        inactive_workspace $grey3 $grey2 $grey8
         urgent_workspace $darkred $lightred $white
     }
 }
