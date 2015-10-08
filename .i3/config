@@ -255,6 +255,12 @@ mode "resize" {
     bindsym Up          resize shrink height 10 px or 10 ppt
     bindsym Right       resize grow width 10 px or 10 ppt
 
+    # resize by mouse wheel
+    bindsym --whole-window button4 resize shrink height 1px or 1ppt
+    bindsym --whole-window button5 resize grow height 1px or 1ppt
+    bindsym --whole-window button6 resize shrink width 1px or 1ppt
+    bindsym --whole-window button7 resize grow width 1px or 1ppt
+
     # back to normal: Enter or Escape
     bindcode 9 mode "default"
     bindcode 43 mode "default"
