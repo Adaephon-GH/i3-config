@@ -12,7 +12,6 @@ set $DISP1 GPU-0.DP-3
 set $DISP2 GPU-1.DP-0
 
 
-set $brightred  #ff4400
 set $lightred  #ff4400
 set $darkred    #5c1800
 set $lightblue  #13e6f3
@@ -430,6 +429,7 @@ bar {
         active_workspace $grey $midblue $white
         inactive_workspace $grey3 $grey2 $grey8
         urgent_workspace $darkred $lightred $white
+        binding_mode $lightred $darkred $white
     }
 }
 
@@ -447,6 +447,7 @@ bar {
         active_workspace $grey $midblue $white
         inactive_workspace $grey3 $grey2 $grey8
         urgent_workspace $darkred $lightred $white
+        binding_mode $lightred $darkred $white
     }
 }
 
@@ -463,6 +464,7 @@ bar {
         active_workspace $grey $midblue $white
         inactive_workspace $grey3 $grey2 $grey8
         urgent_workspace $darkred $lightred $white
+        binding_mode $lightred $darkred $white
     }
 }
 
