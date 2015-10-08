@@ -419,6 +419,7 @@ assign [class="^Vmware$"] 12: Virt
 bar {
     id left-bar
     tray_output $DISP0
+    tray_padding 0
     output $DISP0
     status_command i3status --config ~/.i3/i3status.clock.conf
     colors {
