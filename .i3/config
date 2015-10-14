@@ -232,7 +232,8 @@ bindcode Mod4+Shift+52 move scratchpad
 bindcode Mod4+52 scratchpad show
 
 # Move the current winow to where the last split was made (Super+Shift+m)[Super+Shift+m]
-bindcode Mod4+Shift+58 mark movethis; move scratchpad; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] scratchpad show, floating disable
+#bindcode Mod4+Shift+58 mark movethis; move scratchpad; [con_mark="^lastsplit"] focus; [con_mark="^movethis$"] scratchpad show, floating disable
+bindcode Mod4+Shift+58 move window to mark "lastsplit"
 
 # Mode for resizing clients
 mode "resize" {
