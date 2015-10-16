@@ -5,7 +5,7 @@ set $fonttype "pango:TerminusX 9"
 font $fonttype
 # ISO 10646 = Unicode
 #set $fonttype "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1"
-set $dmenufonttype -xos4-terminus-medium-r-normal--12-120-72-72-c-60-*
+set $dmenufonttype "TerminusX-9"
 
 set $DISP0 GPU-0.DP-2
 set $DISP1 GPU-0.DP-3
