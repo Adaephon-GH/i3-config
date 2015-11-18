@@ -413,8 +413,9 @@ workspace "monitor" output $DISP2
 
 # Client assignments to workspaces
 assign [class="^Firefox$"] 1: INet
-#assign [class="^Thunderbird$"] 2: Mail
+assign [class="^Thunderbird$"] 2: Mail
 assign [class="^Pidgin$"] 3: Chat
+assign [class="HipChat"] 3: Chat
 assign [class="^Clementine$"] 16
 assign [class="^Vmware$"] 12: Virt
 #assign [class="jetbrains-pycharm" title="(Find|Changes)"] 32: Dev2
@@ -483,8 +484,9 @@ exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id ~/bin/start_xautolock.sh
 exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
 exec --no-startup-id urxvtd -q -f -o
-#exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11
 exec --no-startup-id solaar
+exec --no-startup-id pidgin
+exec --no-startup-id hipchat
 
 #### SETTINGS FOR SPECIFIC WINDOWS ####
 
@@ -493,3 +495,4 @@ for_window [class="^xfreerdp"] floating enable
 for_window [title="^Event Tester$"] floating enable
 for_window [class="jetbrains-pycharm" title="(Find|Changes)"] floating disable
 for_window [title="^Add Host\(s\) or Cluster\(s\)"] floating enable
+
