@@ -1,11 +1,11 @@
 ## comments for keybindings indicate keys on two layouts:
 ## (de neo)[de nodeadkeys]
 
-set $fonttype "pango:TerminusX 9"
+set $fonttype "pango:Terminusmodx 9"
 font $fonttype
 # ISO 10646 = Unicode
 #set $fonttype "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1"
-set $dmenufonttype "TerminusX-9"
+set $dmenufonttype "Terminusmodx-9"
 
 set $DISP0 GPU-0.DP-2
 set $DISP1 GPU-0.DP-3
@@ -335,18 +335,18 @@ bindcode Mod4+Shift+43 exec --no-startup-id python ~/bin/i3/sortcontainer.py
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
 # (Super+End)[Super+End]
 bindcode Mod4+115 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -5% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 i3status
 # (Super+PgDown)[Super+PgDown]
-bindcode Mod4+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -5% && killall -SIGUSR1 i3status
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -1% && killall -SIGUSR1 i3status
+bindcode Mod4+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 i3status
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 i3status
 # (Super+Shift+PgDown)[Super+Shift+PgDown]
-bindcode Mod4+Shift+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -1% && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +5% && killall -SIGUSR1 i3status
+bindcode Mod4+Shift+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 i3status
 # (Super+PgUp)[Super+PgUp]
-bindcode Mod4+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +5% && killall -SIGUSR1 i3status
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +1% && killall -SIGUSR1 i3status
+bindcode Mod4+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 i3status
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 i3status
 # (Super+Shift+PgUp)[Super+Shift+PgUp]
-bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +1% && killall -SIGUSR1 i3status
+bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 i3status
 
 # clementine Remote control
 bindsym XF86AudioPlay exec clementine_CTRL.py pause
@@ -483,7 +483,7 @@ exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id ~/bin/start_xautolock.sh
 exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
 exec --no-startup-id urxvtd -q -f -o
-exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11
+#exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11
 exec --no-startup-id solaar
 
 #### SETTINGS FOR SPECIFIC WINDOWS ####
