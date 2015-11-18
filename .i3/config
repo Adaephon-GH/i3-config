@@ -245,16 +245,16 @@ mode "resize" {
     # Pressing down will grow the window’s height.
 
     # (g/n/r/t)[i/j/k/l]
-    bindcode 44         resize shrink width 10 px or 10 ppt
-    bindcode 31         resize grow height 10 px or 10 ppt
-    bindcode 45         resize shrink height 10 px or 10 ppt
-    bindcode 46         resize grow width 10 px or 10 ppt
+    bindcode 44         resize shrink width 10 px or 5 ppt
+    bindcode 31         resize grow height 10 px or 5 ppt
+    bindcode 45         resize shrink height 10 px or 5 ppt
+    bindcode 46         resize grow width 10 px or 5 ppt
 
     # same bindings, but for the arrow keys
-    bindsym Left        resize shrink width 10 px or 10 ppt
-    bindsym Down        resize grow height 10 px or 10 ppt
-    bindsym Up          resize shrink height 10 px or 10 ppt
-    bindsym Right       resize grow width 10 px or 10 ppt
+    bindsym Left        resize shrink width 10 px or 5 ppt
+    bindsym Down        resize grow height 10 px or 5 ppt
+    bindsym Up          resize shrink height 10 px or 5 ppt
+    bindsym Right       resize grow width 10 px or 5 ppt
 
     # resize by mouse wheel
     bindsym --whole-window button4 resize shrink height 1px or 1ppt
