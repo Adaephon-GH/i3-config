@@ -1,5 +1,5 @@
 !! rofi settings
-!! load with `#include <PATH>` from main Xressources file
+!! load with `#include <PATH>` from main Xresources file
 ! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 rofi.color-enabled: True
 rofi.color-normal: #222222,  #888888,  #111111,  #00767e,  #ffffff
