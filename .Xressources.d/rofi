@@ -1,0 +1,22 @@
+!! rofi settings
+!! load with `#include <PATH>` from main Xressources file
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-enabled: True
+rofi.color-normal: #222222,  #888888,  #111111,  #00767e,  #ffffff
+rofi.color-active: #222222,  #13e6f3,  #111111,  #13e6f3,  #000000
+rofi.color-urgent: #222222,  #ff4400,  #111111,  #ff4400,  #ffffff
+!                  'background', 'border'
+rofi.color-window: #222222,      #13e6f3
+rofi.bw: 2
+rofi.width: 60
+rofi.lines: 10
+rofi.font: Terminusmodx 10
+rofi.terminal: urxvtc
+rofi.levenshtein-sort: False
+rofi.separator-style: solid
+rofi.markup-rows: False
+
+! keys for rofi, optimized for Neo2
+rofi.key-run:     mod4+p
+rofi.key-window:  mod4+odiaeresis
+rofi.key-ssh:     mod4+adiaeresis
