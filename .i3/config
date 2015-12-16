@@ -322,8 +322,8 @@ bindcode Mod4+26 exec --no-startup-id setsid xautolock -locknow
 # Toggle automatic screenlock (Super+Shift+l)[Super+Shift+e]
 bindcode Mod4+Shift+26 exec --no-startup-id xautolock -toggle
 
-# Start dmenu application launcher (Super+p)[Super+v]
-bindcode Mod4+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
+# Start dmenu application launcher (Super+Shift+p)[Super+Shift+ v]
+bindcode Mod4+Shift+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
 
 # Open shutdown menu (Super+Shift+F12)[Super+Shift+F12]
 bindcode Mod4+Shift+96 exec --no-startup-id ~/bin/Shutdown.sh
@@ -487,6 +487,7 @@ exec --no-startup-id urxvtd -q -f -o
 exec --no-startup-id solaar
 exec --no-startup-id pidgin
 exec --no-startup-id hipchat
+exec --no-startup-id rofi 
 
 #### SETTINGS FOR SPECIFIC WINDOWS ####
 
