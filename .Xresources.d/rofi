@@ -18,6 +18,6 @@ rofi.levenshtein-sort: False
 rofi.glob: False
 
 ! keys for rofi, optimized for Neo2
-rofi.key-run:     mod4+p
-rofi.key-window:  mod4+odiaeresis
-rofi.key-ssh:     mod4+adiaeresis
+rofi.key-run:     SuperL+p
+rofi.key-window:  SuperL+odiaeresis
+rofi.key-ssh:     SuperL+adiaeresis
