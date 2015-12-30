@@ -10,11 +10,12 @@ rofi.color-window: #222222,      #13e6f3
 rofi.bw: 2
 rofi.width: 60
 rofi.lines: 10
+rofi.separator-style: solid
+rofi.markup-rows: False
 rofi.font: Terminusmodx 10
 rofi.terminal: urxvtc
 rofi.levenshtein-sort: False
-rofi.separator-style: solid
-rofi.markup-rows: False
+rofi.glob: False
 
 ! keys for rofi, optimized for Neo2
 rofi.key-run:     mod4+p
