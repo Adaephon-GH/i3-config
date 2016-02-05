@@ -327,6 +327,9 @@ bindcode Mod4+Shift+26 exec --no-startup-id xautolock -toggle
 # Start dmenu application launcher (Super+Shift+p)[Super+Shift+ v]
 bindcode Mod4+Shift+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
 
+# Reload rofi configuration (Control+Shift+p)[Control+Shift+ v]
+bindcode Mod4+Control+55 exec --no-startup-id killall -SIGHUP rofi
+
 # Open shutdown menu (Super+Shift+F12)[Super+Shift+F12]
 bindcode Mod4+Shift+96 exec --no-startup-id ~/bin/Shutdown.sh
 
