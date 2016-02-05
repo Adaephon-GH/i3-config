@@ -354,11 +354,11 @@ bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @D
 bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 i3status
 
 # clementine Remote control
-bindsym XF86AudioPlay exec clementine_CTRL.py pause
-bindsym Shift+XF86AudioPlay exec clementine_CTRL.py stop
-bindsym Control+XF86AudioPlay exec clementine_CTRL.py osd
-bindsym Control+XF86AudioRaiseVolume exec clementine_CTRL.py next
-bindsym Control+XF86AudioLowerVolume exec clementine_CTRL.py previous
+#bindsym XF86AudioPlay exec clementine_CTRL.py pause
+#bindsym Shift+XF86AudioPlay exec clementine_CTRL.py stop
+#bindsym Control+XF86AudioPlay exec clementine_CTRL.py osd
+#bindsym Control+XF86AudioRaiseVolume exec clementine_CTRL.py next
+#bindsym Control+XF86AudioLowerVolume exec clementine_CTRL.py previous
 
 # switch keyboard layout to neo on MNEK4000 (Super+KP_()[Super+KP_(]
 bindcode 187 exec ~/bin/asdf
@@ -425,6 +425,7 @@ assign [class="^Clementine$"] 16
 assign [class="^Vmware$"] 12: Virt
 #assign [class="jetbrains-pycharm" title="(Find|Changes)"] 32: Dev2
 #assign [class="jetbrains-pycharm"] 8: Dev
+assign [class="^nuvolaplayer"] 16
 
 #### I3BAR SETTINGS ####
 
@@ -502,4 +503,4 @@ for_window [class="^xfreerdp"] floating enable
 for_window [title="^Event Tester$"] floating enable
 for_window [class="jetbrains-pycharm" title="(Find|Changes)"] floating disable
 for_window [title="^Add Host\(s\) or Cluster\(s\)"] floating enable
-
+for_window [class="^nuvolaplayer"] floating enable
