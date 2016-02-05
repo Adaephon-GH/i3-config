@@ -7,9 +7,9 @@ font $fonttype
 #set $fonttype "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1"
 set $dmenufonttype Terminusmodx-9
 
-set $DISP0 GPU-0.DP-2
-set $DISP1 GPU-0.DP-3
-set $DISP2 GPU-1.DP-0
+set $DISP0 DP-0
+set $DISP1 DP-3
+set $DISP2 DP-0
 
 
 set $lightred  #ff4400
@@ -459,22 +459,22 @@ bar {
     }
 }
 
-# right bar
-bar {
-    id extra-bar
-    tray_output None
-    output $DISP2
-    colors {
-        background $grey2
-        statusline $grey8
-        separator $midblue
-        focused_workspace $midblue $lightblue $black
-        active_workspace $grey $midblue $white
-        inactive_workspace $grey3 $grey2 $grey8
-        urgent_workspace $darkred $lightred $white
-        binding_mode $lightred $darkred $white
-    }
-}
+## right bar
+#bar {
+#    id extra-bar
+#    tray_output None
+#    output $DISP2
+#    colors {
+#        background $grey2
+#        statusline $grey8
+#        separator $midblue
+#        focused_workspace $midblue $lightblue $black
+#        active_workspace $grey $midblue $white
+#        inactive_workspace $grey3 $grey2 $grey8
+#        urgent_workspace $darkred $lightred $white
+#        binding_mode $lightred $darkred $white
+#    }
+#}
 
 
 #### AUTOSTART ####
