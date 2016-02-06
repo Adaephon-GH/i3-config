@@ -1,7 +1,7 @@
 ## comments for keybindings indicate keys on two layouts:
 ## (de neo)[de nodeadkeys]
 
-set $fonttype "pango:Terminusmodx 9"
+set $fonttype "pango:Terminus, FontAwesome 10"
 font $fonttype
 # ISO 10646 = Unicode
 #set $fonttype "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1"
@@ -32,6 +32,35 @@ client.urgent               $darkred    $lightred   $white  $lightred
 
 new_window normal 2
 new_float normal 2
+
+# workspaces
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 5
+set $ws6 6
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
+set $ws11 11
+set $ws12 12
+set $ws13 13
+set $ws14 14
+set $ws15 15
+set $ws16 16
+set $ws17 17
+set $ws18 18
+set $ws19 19
+set $ws20 20
+set $ws21 21
+set $ws22 22
+set $ws23 23
+set $ws24 24
+set $wsh " "
+set $wshh "  "
+
 
 # Use Super+Mouse to drag floating windows to their wanted position
 floating_modifier Mod4
@@ -162,35 +191,35 @@ bindsym Mod4+Mod1+Shift+Down focus parent; move down; focus child
 bindsym Mod4+Mod1+Shift+Right focus parent; move right; focus child
 
 # Workspaces (Super+1/2/…)[Super+1/2/_]
-bindcode Mod4+10 workspace 1: INet
-bindcode Mod4+11 workspace 2: Mail
-bindcode Mod4+12 workspace 3: Chat
-bindcode Mod4+13 workspace 4: Term
-bindcode Mod4+14 workspace 5
-bindcode Mod4+15 workspace 6
-bindcode Mod4+16 workspace 7: Edit
-bindcode Mod4+17 workspace 8: Dev
-bindcode Mod4+18 workspace 9: Sys
-bindcode Mod4+19 workspace 10: Term
-bindcode Mod4+20 workspace 21
-bindcode Mod4+21 workspace 22
-bindcode Mod4+Control+10 workspace 11
-bindcode Mod4+Control+11 workspace 12: Virt
-bindcode Mod4+Control+12 workspace 13
-bindcode Mod4+Control+13 workspace 14
-bindcode Mod4+Control+14 workspace 15
-bindcode Mod4+Control+15 workspace 16
-bindcode Mod4+Control+16 workspace 17
-bindcode Mod4+Control+17 workspace 18
-bindcode Mod4+Control+18 workspace 19
-bindcode Mod4+Control+19 workspace 20
-bindcode Mod4+Control+20 workspace 23
-bindcode Mod4+Control+21 workspace 24
-bindcode Mod4+Mod1+20 workspace " "
-bindcode Mod4+Mod1+21 workspace "  "
+bindcode Mod4+10 workspace $ws1
+bindcode Mod4+11 workspace $ws2
+bindcode Mod4+12 workspace $ws3
+bindcode Mod4+13 workspace $ws4
+bindcode Mod4+14 workspace $ws5
+bindcode Mod4+15 workspace $ws6
+bindcode Mod4+16 workspace $ws7
+bindcode Mod4+17 workspace $ws8
+bindcode Mod4+18 workspace $ws9
+bindcode Mod4+19 workspace $ws10
+bindcode Mod4+20 workspace $ws21
+bindcode Mod4+21 workspace $ws22
+bindcode Mod4+Control+10 workspace $ws11
+bindcode Mod4+Control+11 workspace $ws12
+bindcode Mod4+Control+12 workspace $ws13
+bindcode Mod4+Control+13 workspace $ws14
+bindcode Mod4+Control+14 workspace $ws15
+bindcode Mod4+Control+15 workspace $ws16
+bindcode Mod4+Control+16 workspace $ws17
+bindcode Mod4+Control+17 workspace $ws18
+bindcode Mod4+Control+18 workspace $ws19
+bindcode Mod4+Control+19 workspace $ws20
+bindcode Mod4+Control+20 workspace $ws23
+bindcode Mod4+Control+21 workspace $ws24
+bindcode Mod4+Mod1+20 workspace $wsh
+bindcode Mod4+Mod1+21 workspace $wshh
 
 bindcode Mod4+Mod1+11 workspace "32: Dev2"
-bindcode Mod4+Mod1+17 workspace "8: Dev"; workspace"32: Dev2"
+bindcode Mod4+Mod1+17 workspace $ws8; workspace"32: Dev2"
 
 # Toggle workspaces (Super+Tab)[Super+Tab]
 bindcode Mod4+23 workspace back_and_forth
@@ -200,32 +229,32 @@ bindcode Mod4+Control+23 workspace next
 bindcode Mod4+Shift+23 workspace prev
 
 # Move to Workspaces (Super+Shift+1/2/_)[Super+Shift+1/2/_]
-bindcode Mod4+Shift+10 move workspace 1: INet
-bindcode Mod4+Shift+11 move workspace 2: Mail
-bindcode Mod4+Shift+12 move workspace 3: Chat
-bindcode Mod4+Shift+13 move workspace 4: Term
-bindcode Mod4+Shift+14 move workspace 5
-bindcode Mod4+Shift+15 move workspace 6
-bindcode Mod4+Shift+16 move workspace 7: Edit
-bindcode Mod4+Shift+17 move workspace 8: Dev
-bindcode Mod4+Shift+18 move workspace 9: Sys
-bindcode Mod4+Shift+19 move workspace 10: Term
-bindcode Mod4+Shift+20 move workspace 21
-bindcode Mod4+Shift+21 move workspace 22
-bindcode Mod4+Control+Shift+10 move workspace 11
-bindcode Mod4+Control+Shift+11 move workspace 12: Virt
-bindcode Mod4+Control+Shift+12 move workspace 13
-bindcode Mod4+Control+Shift+13 move workspace 14
-bindcode Mod4+Control+Shift+14 move workspace 15
-bindcode Mod4+Control+Shift+15 move workspace 16
-bindcode Mod4+Control+Shift+16 move workspace 17
-bindcode Mod4+Control+Shift+17 move workspace 18
-bindcode Mod4+Control+Shift+18 move workspace 19
-bindcode Mod4+Control+Shift+19 move workspace 20
-bindcode Mod4+Control+Shift+20 move workspace 23
-bindcode Mod4+Control+Shift+21 move workspace 24
-bindcode Mod4+Mod1+Shift+20 move workspace " "
-bindcode Mod4+Mod1+Shift+21 move workspace "  "
+bindcode Mod4+Shift+10 move workspace $ws1
+bindcode Mod4+Shift+11 move workspace $ws2
+bindcode Mod4+Shift+12 move workspace $ws3
+bindcode Mod4+Shift+13 move workspace $ws4
+bindcode Mod4+Shift+14 move workspace $ws5
+bindcode Mod4+Shift+15 move workspace $ws6
+bindcode Mod4+Shift+16 move workspace $ws7
+bindcode Mod4+Shift+17 move workspace $ws8
+bindcode Mod4+Shift+18 move workspace $ws9
+bindcode Mod4+Shift+19 move workspace $ws10
+bindcode Mod4+Shift+20 move workspace $ws21
+bindcode Mod4+Shift+21 move workspace $ws22
+bindcode Mod4+Control+Shift+10 move workspace $ws11
+bindcode Mod4+Control+Shift+11 move workspace $ws12
+bindcode Mod4+Control+Shift+12 move workspace $ws13
+bindcode Mod4+Control+Shift+13 move workspace $ws14
+bindcode Mod4+Control+Shift+14 move workspace $ws15
+bindcode Mod4+Control+Shift+15 move workspace $ws16
+bindcode Mod4+Control+Shift+16 move workspace $ws17
+bindcode Mod4+Control+Shift+17 move workspace $ws18
+bindcode Mod4+Control+Shift+18 move workspace $ws19
+bindcode Mod4+Control+Shift+19 move workspace $ws20
+bindcode Mod4+Control+Shift+20 move workspace $ws23
+bindcode Mod4+Control+Shift+21 move workspace $ws24
+bindcode Mod4+Mod1+Shift+20 move workspace $wsh
+bindcode Mod4+Mod1+Shift+21 move workspace $wshh
 
 bindcode Mod4+Mod1+Shift+11 move workspace "32: Dev2"
 
@@ -385,32 +414,32 @@ bindcode Mod4+Control+Shift+22 exec "i3-nagbar -t warning -m 'You pressed the ex
 #### WORKSPACE SETTINGS ####
 
 # Workspace assignment to displays
-workspace "1: INet" output $DISP0
-workspace "2: Mail" output $DISP0
-workspace "3: Chat" output $DISP0
-workspace "4: Term" output $DISP0
-workspace 5 output $DISP0
-workspace 6 output $DISP0
-workspace 11 output $DISP0
-workspace "12: Virt" output $DISP0
-workspace 13 output $DISP0
-workspace 14 output $DISP0
-workspace 15 output $DISP0
-workspace 16 output $DISP0
-workspace " " output $DISP0
+workspace $ws1 output $DISP0
+workspace $ws2 output $DISP0
+workspace $ws3 output $DISP0
+workspace $ws4 output $DISP0
+workspace $ws5 output $DISP0
+workspace $ws6 output $DISP0
+workspace $ws11 output $DISP0
+workspace $ws12 output $DISP0
+workspace $ws13 output $DISP0
+workspace $ws14 output $DISP0
+workspace $ws15 output $DISP0
+workspace $ws16 output $DISP0
+workspace $wsh output $DISP0
 
-workspace "7: Edit" output $DISP1
-workspace "8: Dev" output $DISP1
-workspace "9: Sys" output $DISP1
-workspace "10: Term" output $DISP1
-workspace 21 output $DISP1
-workspace 22 output $DISP1
-workspace 17 output $DISP1
-workspace 18 output $DISP1
-workspace 19 output $DISP1
-workspace 20 output $DISP1
-workspace 23 output $DISP1
-workspace 24 output $DISP1
+workspace $ws7 output $DISP1
+workspace $ws8 output $DISP1
+workspace $ws9 output $DISP1
+workspace $ws10 output $DISP1
+workspace $ws21 output $DISP1
+workspace $ws22 output $DISP1
+workspace $ws17 output $DISP1
+workspace $ws18 output $DISP1
+workspace $ws19 output $DISP1
+workspace $ws20 output $DISP1
+workspace $ws23 output $DISP1
+workspace $ws24 output $DISP1
 
 workspace "32: Dev2" output $DISP0
 
