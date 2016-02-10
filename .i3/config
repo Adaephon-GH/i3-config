@@ -2,16 +2,47 @@
 ## (de neo)[de nodeadkeys]
 
 set $fonttype "pango:Terminus, FontAwesome 10"
+#set $fonttype "pango:Terminusmodx, FontAwesome 9"
 font $fonttype
 # ISO 10646 = Unicode
 #set $fonttype "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1"
 set $dmenufonttype Terminusmodx-9
 
+# Displays
 set $DISP0 DP-0
 set $DISP1 DP-3
 set $DISP2 DP-0
 
+# Workspaces
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13:"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16:"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
+set $ws21 "21"
+set $ws22 "22"
+set $ws23 "23"
+set $ws24 "24"
+set $ws32 "32:"
+set $wsh " "
+set $wshh "  "
 
+# Colors
 set $lightred  #ff4400
 set $darkred    #5c1800
 set $lightblue  #13e6f3
@@ -33,35 +64,6 @@ client.urgent               $darkred    $lightred   $white  $lightred
 new_window normal 2
 new_float normal 2
 
-# workspaces
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 5
-set $ws6 6
-set $ws7 "7:"
-set $ws8 "8:"
-set $ws9 "9:"
-set $ws10 "10:"
-set $ws11 11
-set $ws12 12
-set $ws13 13
-set $ws14 14
-set $ws15 15
-set $ws16 16
-set $ws17 17
-set $ws18 18
-set $ws19 19
-set $ws20 20
-set $ws21 21
-set $ws22 22
-set $ws23 23
-set $ws24 24
-set $wsh " "
-set $wshh "  "
-
-
 # Use Super+Mouse to drag floating windows to their wanted position
 floating_modifier Mod4
 
@@ -81,7 +83,7 @@ workspace_auto_back_and_forth yes
 force_focus_wrapping yes
 
 # disable auto focus
-focus_follows_mouse no
+#focus_follows_mouse no
 
 ### KEYBOARD COMMANDS ###
 
@@ -218,8 +220,8 @@ bindcode Mod4+Control+21 workspace $ws24
 bindcode Mod4+Mod1+20 workspace $wsh
 bindcode Mod4+Mod1+21 workspace $wshh
 
-bindcode Mod4+Mod1+11 workspace "32: Dev2"
-bindcode Mod4+Mod1+17 workspace $ws8; workspace"32: Dev2"
+bindcode Mod4+Mod1+11 workspace $ws32
+bindcode Mod4+Mod1+17 workspace $ws8; workspace $ws32
 
 # Toggle workspaces (Super+Tab)[Super+Tab]
 bindcode Mod4+23 workspace back_and_forth
@@ -256,7 +258,7 @@ bindcode Mod4+Control+Shift+21 move workspace $ws24
 bindcode Mod4+Mod1+Shift+20 move workspace $wsh
 bindcode Mod4+Mod1+Shift+21 move workspace $wshh
 
-bindcode Mod4+Mod1+Shift+11 move workspace "32: Dev2"
+bindcode Mod4+Mod1+Shift+11 move workspace $ws32
 
 # Scratchpad create (Super+Shift+ü)[Super+Shift+y]
 bindcode Mod4+Shift+52 move scratchpad
@@ -441,20 +443,20 @@ workspace $ws20 output $DISP1
 workspace $ws23 output $DISP1
 workspace $ws24 output $DISP1
 
-workspace "32: Dev2" output $DISP0
+workspace $ws32 output $DISP0
 
 workspace "monitor" output $DISP2
 
 # Client assignments to workspaces
-assign [class="^Firefox$"] 1: INet
-assign [class="^Thunderbird$"] 2: Mail
-assign [class="^Pidgin$"] 3: Chat
-assign [class="HipChat"] 3: Chat
-assign [class="^Clementine$"] 16
-assign [class="^Vmware$"] 12: Virt
-#assign [class="jetbrains-pycharm" title="(Find|Changes)"] 32: Dev2
-#assign [class="jetbrains-pycharm"] 8: Dev
-assign [class="^nuvolaplayer"] 16
+assign [class="^Firefox$"] $ws1
+assign [class="^Thunderbird$"] $ws2
+assign [class="^Pidgin$"] $ws3
+assign [class="HipChat"] $ws3
+assign [class="^Clementine$"] $ws16
+assign [class="^Vmware$"] $ws16
+#assign [class="jetbrains-pycharm" title="(Find|Changes)"] $ws32
+#assign [class="jetbrains-pycharm"] $ws8
+assign [class="^nuvolaplayer"] $ws16
 
 #### I3BAR SETTINGS ####
 
