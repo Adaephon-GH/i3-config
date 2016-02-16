@@ -158,17 +158,17 @@ bindsym Mod4+Control+Left move output left
 bindsym Mod4+Control+Right move output right
 
 # Direct access to outputs (Super+i/a/e)[Super+s/d/f]
-bindcode Mod4+39 focus output $DISP0
-bindcode Mod4+40 focus output $DISP1
-bindcode Mod4+41 focus output $DISP2
+bindcode Mod4+39 focus output $DISP2
+bindcode Mod4+40 focus output $DISP0
+bindcode Mod4+41 focus output $DISP1
 # Move container to specific output (Super+Shift+i/a/e)[Super+Shift+s/d/f]
-bindcode Mod4+Shift+39 move container to output $DISP0
-bindcode Mod4+Shift+40 move container to output $DISP1
-bindcode Mod4+Shift+41 move container to output $DISP2
+bindcode Mod4+Shift+39 move container to output $DISP2
+bindcode Mod4+Shift+40 move container to output $DISP0
+bindcode Mod4+Shift+41 move container to output $DISP1
 # Move workspace to specific output (Super+Alt+i/a/e)[Super+Alt+s/d/f]
-bindcode Mod4+Mod1+39 move workspace to output $DISP0
-bindcode Mod4+Mod1+40 move workspace to output $DISP1
-bindcode Mod4+Mod1+41 move workspace to output $DISP2
+bindcode Mod4+Mod1+39 move workspace to output $DISP2
+bindcode Mod4+Mod1+40 move workspace to output $DISP0
+bindcode Mod4+Mod1+41 move workspace to output $DISP1
 
 # Move (Super+Shift+g/n/r/t)[Super+Shift+i/j/k/l]
 bindcode Mod4+Shift+31 move up
