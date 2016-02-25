@@ -12,7 +12,7 @@ rofi.width: 60
 rofi.lines: 10
 rofi.separator-style: solid
 rofi.markup-rows: False
-rofi.font: Terminusmodx 10
+rofi.font: monofur for Powerline 11
 rofi.terminal: urxvtc
 rofi.levenshtein-sort: False
 rofi.glob: False
