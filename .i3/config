@@ -543,6 +543,7 @@ exec --no-startup-id solaar
 exec --no-startup-id pidgin
 exec --no-startup-id hipchat
 exec --no-startup-id rofi 
+exec --no-startup-id dunst
 exec --no-startup-id unclutter --timeout 3 -b
 
 #### SETTINGS FOR SPECIFIC WINDOWS ####
