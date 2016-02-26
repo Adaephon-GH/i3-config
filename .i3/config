@@ -40,23 +40,40 @@ set $wsh " "
 set $wshh "  "
 
 # Colors
-set $lightred  #ff4400
-set $darkred    #5c1800
-set $lightblue  #13e6f3
-set $midblue    #00767e
-set $darkblue   #030a82
-set $black      #000000
-set $white      #ffffff
-set $grey2      #222222
-set $grey3      #333333
-set $grey8      #888888
+# inspired by gruvbox
+set $c_bright_red       #fb4934
+set $c_neutral_red      #cc241d
+set $c_dark_red         #9d0006
+set $c_bright_green     #b8bb26
+set $c_neutral_green    #98971a
+set $c_dark_green       #79740e
+set $c_bright_yellow    #fabd2f
+set $c_neutral_yellow   #d79921
+set $c_dark_yellow      #b57614
+set $c_bright_blue      #83a598
+set $c_neutral_blue     #458588
+set $c_dark_blue        #076678
+set $c_bright_purple    #d3869b
+set $c_neutral_purple   #b16286
+set $c_dark_purple      #8f3f71
+set $c_bright_aqua      #8ec07c
+set $c_neutral_aqua     #689d6a
+set $c_dark_aqua        #427b58
+set $c_bright_orange    #fe8019
+set $c_neutral_orange   #d65d0e
+set $c_dark_orange      #af3a03
+set $c_black            #1d2021
+set $c_white            #ebdbb2
+set $c_dark_grey        #282828
+set $c_neutral_grey     #3c3836
+set $c_bright_grey      #a89984
 
 # set colors
-# name                      border      back        text    indicator
-client.focused_inactive     $grey3      $midblue    $white  $midblue
-client.focused              $midblue    $lightblue  $black  $midblue
-client.unfocused            $grey3      $grey2      $grey8  $grey2
-client.urgent               $darkred    $lightred   $white  $lightred
+# name                      border              back                text                indicator
+client.focused_inactive     $c_neutral_blue     $c_dark_blue        $c_white            $c_dark_blue
+client.focused              $c_neutral_orange   $c_bright_orange    $c_black            $c_bright_yellow
+client.unfocused            $c_neutral_grey     $c_dark_grey        $c_bright_grey      $c_dark_grey
+client.urgent               $c_bright_red       $c_neutral_red      $c_white            $c_bright_red
 
 new_window normal 2
 new_float normal 2
@@ -340,7 +357,7 @@ bindcode Mod4+28 exec --no-startup-id i3-input -F 'workspace %s' -l 8 -P 'Worksp
 bindcode Mod4+Shift+28 exec --no-startup-id i3-input -F 'move container to workspace %s' -l 8 -P 'Move to workspace: '
 
 # Run arbitrary i3 command (Super+Alt+Return)[Super+Alt+Return]
-bindcode Mod4+Mod1+36 exec ~/bin/i3_run -fn "$dmenufonttype" -nb "$midblue" -nf "$white" -sb "$lightblue" -sf "$black" -p "i3-msg"
+bindcode Mod4+Mod1+36 exec ~/bin/i3_run -fn "$dmenufonttype" -nb "$c_dark_blue" -nf "$c_white" -sb "$c_neutral_blue" -sf "$c_black" -p "i3-msg"
 
 # Open urxvt (Super+Return)[Super+Return]
 bindcode Mod4+36 exec /usr/bin/urxvtc
@@ -353,7 +370,7 @@ bindcode Mod4+26 exec --no-startup-id setsid xautolock -locknow
 bindcode Mod4+Shift+26 exec --no-startup-id xautolock -toggle
 
 # Start dmenu application launcher (Super+Shift+p)[Super+Shift+ v]
-bindcode Mod4+Shift+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype" -nb "$grey2" -nf "$grey8" -sb "$lightblue" -sf "$black" -p ">>>"
+bindcode Mod4+Shift+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype" -nb "$c_dark_grey" -nf "$c_bright_grey" -sb "$c_neutral_blue" -sf "$c_black" -p ">>>"
 
 # Reload rofi configuration (Control+Shift+p)[Control+Shift+ v]
 bindcode Mod4+Control+55 exec --no-startup-id killall -SIGHUP rofi
@@ -465,14 +482,15 @@ bar {
     output $DISP0
     status_command i3status --config ~/.i3/i3status.clock.conf
     colors {
-        background $grey2
-        statusline $grey8
-        separator $midblue
-        focused_workspace $midblue $lightblue $black
-        active_workspace $grey $midblue $white
-        inactive_workspace $grey3 $grey2 $grey8
-        urgent_workspace $darkred $lightred $white
-        binding_mode $lightred $darkred $white
+        background          $c_dark_grey
+        statusline          $c_bright_grey
+        separator           $c_dark_blue
+        # name              border              background          text
+        focused_workspace   $c_neutral_orange   $c_bright_orange    $c_black
+        active_workspace    $c_neutral_blue     $c_dark_blue        $c_white
+        inactive_workspace  $c_neutral_grey     $c_dark_grey        $c_bright_grey
+        urgent_workspace    $c_bright_red       $c_neutral_red      $c_white
+        binding_mode        $c_neutral_aqua     $c_dark_aqua        $c_white
     }
 }
 
@@ -483,14 +501,15 @@ bar {
     output $DISP1
     status_command i3status --config ~/.i3/i3status.conf
     colors {
-        background $grey2
-        statusline $grey8
-        separator $midblue
-        focused_workspace $midblue $lightblue $black
-        active_workspace $grey $midblue $white
-        inactive_workspace $grey3 $grey2 $grey8
-        urgent_workspace $darkred $lightred $white
-        binding_mode $lightred $darkred $white
+        background          $c_dark_grey
+        statusline          $c_bright_grey
+        separator           $c_dark_blue
+        # name              border              background          text
+        focused_workspace   $c_neutral_orange   $c_bright_orange    $c_black
+        active_workspace    $c_neutral_blue     $c_dark_blue        $c_white
+        inactive_workspace  $c_neutral_grey     $c_dark_grey        $c_bright_grey
+        urgent_workspace    $c_bright_red       $c_neutral_red      $c_white
+        binding_mode        $c_neutral_aqua     $c_dark_aqua        $c_white
     }
 }
 
@@ -500,14 +519,16 @@ bar {
 #    tray_output None
 #    output $DISP2
 #    colors {
-#        background $grey2
-#        statusline $grey8
-#        separator $midblue
-#        focused_workspace $midblue $lightblue $black
-#        active_workspace $grey $midblue $white
-#        inactive_workspace $grey3 $grey2 $grey8
-#        urgent_workspace $darkred $lightred $white
-#        binding_mode $lightred $darkred $white
+#        background          $c_dark_grey
+#        statusline          $c_bright_grey
+#        separator           $c_dark_blue
+#        # name              border              background          text
+#        focused_workspace   $c_dark_yellow      $c_neutral_yellow   $c_black
+#        active_workspace    $c_neutral_blue     $c_dark_blue        $c_white
+#        inactive_workspace  $c_neutral_grey     $c_dark_grey        $c_bright_grey
+#        urgent_workspace    $c_bright_red       $c_neutral_red      $c_white
+#        binding_mode        $c_bright_red       $c_neutral_red      $c_white
+#        binding_mode        $c_neutral_aqua     $c_dark_aqua        $c_white
 #    }
 #}
 
