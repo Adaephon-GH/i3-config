@@ -361,8 +361,8 @@ bindcode Mod4+Shift+28 exec --no-startup-id i3-input -F 'move container to works
 # Run arbitrary i3 command (Super+Alt+Return)[Super+Alt+Return]
 bindcode Mod4+Mod1+36 exec ~/bin/i3_run -fn "$dmenufonttype" -nb "$c_dark_blue" -nf "$c_white" -sb "$c_neutral_blue" -sf "$c_black" -p "i3-msg"
 
-# Open urxvt (Super+Return)[Super+Return]
-bindcode Mod4+36 exec /usr/bin/urxvtc
+# Open termite (Super+Return)[Super+Return]
+bindcode Mod4+36 exec /usr/bin/termite
 # Open roxterm (Super+Shift+Return)[Super+Shift+Return]
 bindcode Mod4+Shift+36 exec /usr/bin/roxterm
 
@@ -540,7 +540,6 @@ bar {
 exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id ~/bin/start_xautolock.sh
 exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
-exec --no-startup-id urxvtd -q -f -o
 exec --no-startup-id solaar
 exec --no-startup-id pidgin
 exec --no-startup-id hipchat
