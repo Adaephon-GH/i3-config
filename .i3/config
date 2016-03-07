@@ -69,12 +69,12 @@ set $c_neutral_grey     #3c3836
 set $c_bright_grey      #a89984
 
 # set colors
-# name                      border              back                text                indicator
-client.focused_inactive     $c_neutral_blue     $c_dark_blue        $c_white            $c_dark_blue
-client.focused              $c_neutral_orange   $c_bright_orange    $c_black            $c_bright_yellow
-client.unfocused            $c_neutral_grey     $c_dark_grey        $c_bright_grey      $c_dark_grey
-client.urgent               $c_bright_red       $c_neutral_red      $c_white            $c_bright_red
-client.placeholder          #000000             $c_black            $c_bright_orange    #000000
+# name                      border              back                text                indicator           border
+client.focused_inactive     $c_neutral_blue     $c_dark_blue        $c_white            $c_dark_blue        $c_neutral_blue
+client.focused              $c_neutral_orange   $c_bright_orange    $c_black            $c_bright_yellow    $c_neutral_orange
+client.unfocused            $c_neutral_grey     $c_dark_grey        $c_bright_grey      $c_dark_grey        $c_neutral_grey
+client.urgent               $c_bright_red       $c_neutral_red      $c_white            $c_bright_red       $c_bright_red
+client.placeholder          #000000             $c_black            $c_bright_orange    #000000             #000000
 client.background           $c_black
 
 new_window normal 2
@@ -282,7 +282,7 @@ bindcode Mod4+Shift+52 move scratchpad
 bindcode Mod4+52 scratchpad show
 
 # Move the current winow to where the last split was made (Super+Shift+m)[Super+Shift+m]
-bindcode Mod4+Shift+58 move window to mark lastsplit
+bindcode Mod4+Shift+58 move window to mark --add lastsplit
 
 # Mode for resizing clients
 mode "resize" {
