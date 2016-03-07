@@ -285,7 +285,8 @@ bindcode Mod4+52 scratchpad show
 bindcode Mod4+Shift+58 move window to mark lastsplit
 
 # Mode for resizing clients
-mode "resize" {
+set $mode_resize "resize"
+mode $mode_resize {
     # These bindings trigger as soon as you enter the resize mode
 
     # Pressing left will shrink the window’s width.
@@ -316,14 +317,15 @@ mode "resize" {
     bindcode 43 mode "default"
 }
 # Enter resize mode (Super+s)[Super+h]
-bindcode Mod4+43 mode "resize"
+bindcode Mod4+43 mode $mode_resize
 
 # Mode which deaktivates all bindings
-mode "passthrough" {
+set mode_passthrough "passthrough"
+mode $mode_passthrough {
     bindcode Mod4+9 mode "default"
 }
 # Enter passthrough mode (Super+Escape)[Super+Escape]
-bindcode Mod4+9 mode "passthrough"; exec sh -c 'sleep 2 && i3-msg mode "default"'
+bindcode Mod4+9 mode $mode_passthrough; exec sh -c 'sleep 2 && i3-msg mode "default"'
 
 # Marks and Gotos for special keys on the MSNEK4000
 bindcode Mod4+192 mark Fav1
