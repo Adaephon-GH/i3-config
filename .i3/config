@@ -104,8 +104,8 @@ force_focus_wrapping yes
 ### KEYBOARD COMMANDS ###
 
 # split and mark (Super+v/h)[Super+w/u]
-bindcode Mod4+25 split vertical; mark lastsplit
-bindcode Mod4+30 split horizontal; mark lastsplit
+bindcode Mod4+25 split vertical; mark --add lastsplit
+bindcode Mod4+30 split horizontal; mark --add lastsplit
 
 # Fullscreen (Super+o)[Super+f]
 bindcode Mod4+32 fullscreen toggle
@@ -282,7 +282,7 @@ bindcode Mod4+Shift+52 move scratchpad
 bindcode Mod4+52 scratchpad show
 
 # Move the current winow to where the last split was made (Super+Shift+m)[Super+Shift+m]
-bindcode Mod4+Shift+58 move window to mark --add lastsplit
+bindcode Mod4+Shift+58 move window to mark lastsplit
 
 # Mode for resizing clients
 set $mode_resize "resize"
