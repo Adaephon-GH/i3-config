@@ -562,3 +562,7 @@ for_window [class="^nuvolaplayer"] floating enable
 for_window [class="^Thunderbird" window_role="^AlarmWindow$"] floating enable, sticky enable
 
 for_window [class="^Termite$" window_role="^floating$"] floating enable
+
+## icons (kind of)
+for_window [class="^chromium$"] title_format <span size="small"> </span>%title
+for_window [class="^(Termite)$"] title_format <span size="small"> </span>%title
