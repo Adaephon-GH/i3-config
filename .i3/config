@@ -365,6 +365,8 @@ bindcode Mod4+Mod1+36 exec ~/bin/i3_run -fn "$dmenufonttype" -nb "$c_dark_blue" 
 
 # Open termite (Super+Return)[Super+Return]
 bindcode Mod4+36 exec /usr/bin/termite
+# Open termite with role "floating" (Super+Control+Return)[Super+Control+Return]
+bindcode Mod4+Control+36 exec /usr/bin/termite --role floating
 # Open roxterm (Super+Shift+Return)[Super+Shift+Return]
 bindcode Mod4+Shift+36 exec /usr/bin/roxterm
 
@@ -558,3 +560,5 @@ for_window [class="jetbrains-pycharm" title="(Find|Changes)"] floating disable
 for_window [title="^Add Host\(s\) or Cluster\(s\)"] floating enable
 for_window [class="^nuvolaplayer"] floating enable
 for_window [class="^Thunderbird" window_role="^AlarmWindow$"] floating enable, sticky enable
+
+for_window [class="^Termite$" window_role="^floating$"] floating enable
