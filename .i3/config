@@ -127,6 +127,9 @@ bindcode Mod4+Shift+60 layout toggle split
 # Toggle tiling/floating of the current window (Super+Shift+Space)[Super+Shift+Space]
 bindcode Mod4+Shift+65 floating toggle
 
+# Toggle sticky status of the current window (Super+Alt+Space)[Super+Alt+Space]
+bindcode Mod4+Mod1+65 sticky toggle
+
 # Go into the tiling layer / floating layer, depending on whether
 # the current window is tiling / floating (Super+Space)[Super+Space]
 bindcode Mod4+65 focus mode_toggle
