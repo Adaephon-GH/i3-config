@@ -212,34 +212,34 @@ bindsym Mod4+Mod1+Shift+Down focus parent; move down; focus child
 bindsym Mod4+Mod1+Shift+Right focus parent; move right; focus child
 
 # Workspaces (Super+1/2/…)[Super+1/2/_]
-bindcode Mod4+10 workspace $ws1
-bindcode Mod4+11 workspace $ws2
-bindcode Mod4+12 workspace $ws3
-bindcode Mod4+13 workspace $ws4
-bindcode Mod4+14 workspace $ws5
-bindcode Mod4+15 workspace $ws6
-bindcode Mod4+16 workspace $ws7
-bindcode Mod4+17 workspace $ws8
-bindcode Mod4+18 workspace $ws9
-bindcode Mod4+19 workspace $ws10
-bindcode Mod4+20 workspace $ws21
-bindcode Mod4+21 workspace $ws22
-bindcode Mod4+Control+10 workspace $ws11
-bindcode Mod4+Control+11 workspace $ws12
-bindcode Mod4+Control+12 workspace $ws13
-bindcode Mod4+Control+13 workspace $ws14
-bindcode Mod4+Control+14 workspace $ws15
-bindcode Mod4+Control+15 workspace $ws16
-bindcode Mod4+Control+16 workspace $ws17
-bindcode Mod4+Control+17 workspace $ws18
-bindcode Mod4+Control+18 workspace $ws19
-bindcode Mod4+Control+19 workspace $ws20
-bindcode Mod4+Control+20 workspace $ws23
-bindcode Mod4+Control+21 workspace $ws24
+bindcode Mod4+10 workspace number $ws1
+bindcode Mod4+11 workspace number $ws2
+bindcode Mod4+12 workspace number $ws3
+bindcode Mod4+13 workspace number $ws4
+bindcode Mod4+14 workspace number $ws5
+bindcode Mod4+15 workspace number $ws6
+bindcode Mod4+16 workspace number $ws7
+bindcode Mod4+17 workspace number $ws8
+bindcode Mod4+18 workspace number $ws9
+bindcode Mod4+19 workspace number $ws10
+bindcode Mod4+20 workspace number $ws21
+bindcode Mod4+21 workspace number $ws22
+bindcode Mod4+Control+10 workspace number $ws11
+bindcode Mod4+Control+11 workspace number $ws12
+bindcode Mod4+Control+12 workspace number $ws13
+bindcode Mod4+Control+13 workspace number $ws14
+bindcode Mod4+Control+14 workspace number $ws15
+bindcode Mod4+Control+15 workspace number $ws16
+bindcode Mod4+Control+16 workspace number $ws17
+bindcode Mod4+Control+17 workspace number $ws18
+bindcode Mod4+Control+18 workspace number $ws19
+bindcode Mod4+Control+19 workspace number $ws20
+bindcode Mod4+Control+20 workspace number $ws23
+bindcode Mod4+Control+21 workspace number $ws24
 bindcode Mod4+Mod1+20 workspace $wsh
 bindcode Mod4+Mod1+21 workspace $wshh
 
-bindcode Mod4+Mod1+11 workspace $ws32
+bindcode Mod4+Mod1+11 workspace number $ws32
 bindcode Mod4+Mod1+17 workspace $ws8; workspace $ws32
 
 # Toggle workspaces (Super+Tab)[Super+Tab]
@@ -250,34 +250,34 @@ bindcode Mod4+Control+23 workspace next
 bindcode Mod4+Shift+23 workspace prev
 
 # Move to Workspaces (Super+Shift+1/2/_)[Super+Shift+1/2/_]
-bindcode Mod4+Shift+10 move workspace $ws1
-bindcode Mod4+Shift+11 move workspace $ws2
-bindcode Mod4+Shift+12 move workspace $ws3
-bindcode Mod4+Shift+13 move workspace $ws4
-bindcode Mod4+Shift+14 move workspace $ws5
-bindcode Mod4+Shift+15 move workspace $ws6
-bindcode Mod4+Shift+16 move workspace $ws7
-bindcode Mod4+Shift+17 move workspace $ws8
-bindcode Mod4+Shift+18 move workspace $ws9
-bindcode Mod4+Shift+19 move workspace $ws10
-bindcode Mod4+Shift+20 move workspace $ws21
-bindcode Mod4+Shift+21 move workspace $ws22
-bindcode Mod4+Control+Shift+10 move workspace $ws11
-bindcode Mod4+Control+Shift+11 move workspace $ws12
-bindcode Mod4+Control+Shift+12 move workspace $ws13
-bindcode Mod4+Control+Shift+13 move workspace $ws14
-bindcode Mod4+Control+Shift+14 move workspace $ws15
-bindcode Mod4+Control+Shift+15 move workspace $ws16
-bindcode Mod4+Control+Shift+16 move workspace $ws17
-bindcode Mod4+Control+Shift+17 move workspace $ws18
-bindcode Mod4+Control+Shift+18 move workspace $ws19
-bindcode Mod4+Control+Shift+19 move workspace $ws20
-bindcode Mod4+Control+Shift+20 move workspace $ws23
-bindcode Mod4+Control+Shift+21 move workspace $ws24
+bindcode Mod4+Shift+10 move workspace number $ws1
+bindcode Mod4+Shift+11 move workspace number $ws2
+bindcode Mod4+Shift+12 move workspace number $ws3
+bindcode Mod4+Shift+13 move workspace number $ws4
+bindcode Mod4+Shift+14 move workspace number $ws5
+bindcode Mod4+Shift+15 move workspace number $ws6
+bindcode Mod4+Shift+16 move workspace number $ws7
+bindcode Mod4+Shift+17 move workspace number $ws8
+bindcode Mod4+Shift+18 move workspace number $ws9
+bindcode Mod4+Shift+19 move workspace number $ws10
+bindcode Mod4+Shift+20 move workspace number $ws21
+bindcode Mod4+Shift+21 move workspace number $ws22
+bindcode Mod4+Control+Shift+10 move workspace number $ws11
+bindcode Mod4+Control+Shift+11 move workspace number $ws12
+bindcode Mod4+Control+Shift+12 move workspace number $ws13
+bindcode Mod4+Control+Shift+13 move workspace number $ws14
+bindcode Mod4+Control+Shift+14 move workspace number $ws15
+bindcode Mod4+Control+Shift+15 move workspace number $ws16
+bindcode Mod4+Control+Shift+16 move workspace number $ws17
+bindcode Mod4+Control+Shift+17 move workspace number $ws18
+bindcode Mod4+Control+Shift+18 move workspace number $ws19
+bindcode Mod4+Control+Shift+19 move workspace number $ws20
+bindcode Mod4+Control+Shift+20 move workspace number $ws23
+bindcode Mod4+Control+Shift+21 move workspace number $ws24
 bindcode Mod4+Mod1+Shift+20 move workspace $wsh
 bindcode Mod4+Mod1+Shift+21 move workspace $wshh
 
-bindcode Mod4+Mod1+Shift+11 move workspace $ws32
+bindcode Mod4+Mod1+Shift+11 move workspace number $ws32
 
 # Scratchpad create (Super+Shift+ü)[Super+Shift+y]
 bindcode Mod4+Shift+52 move scratchpad
