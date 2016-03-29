@@ -5,10 +5,10 @@ wslist () {
 
 case $1 in
     [0-9]*)
-        i3-msg move container to workspace number "$1"
+        i3-msg move container to workspace number "$1" > /dev/null
         ;;
     ?*)
-        i3-msg move container to workspace "$1"
+        i3-msg move container to workspace "$1" > /dev/null
         ;;
     *)
         wslist
