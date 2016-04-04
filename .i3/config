@@ -359,9 +359,9 @@ bindcode Mod4+58 exec --no-startup-id i3-input -F 'mark %s ' -l 1 -P 'Mark: '
 bindcode Mod4+57 exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # Go to/create workspace with arbitrary name (Super+w)[Super+t]
-bindcode Mod4+28 exec --no-startup-id i3-input -F 'workspace %s' -l 8 -P 'Workspace: '
+bindcode Mod4+28 exec --no-startup-id "rofi -modi 'Workspace:i3wslist.sh,Move to Workspace:i3wsmove.sh' -show Workspace"
 # Move to workspace with arbitrary name (Super+Shift+w)[Super+Shift+t]
-bindcode Mod4+Shift+28 exec --no-startup-id i3-input -F 'move container to workspace %s' -l 8 -P 'Move to workspace: '
+bindcode Mod4+Shift+28 exec --no-startup-id "rofi -modi 'Workspace:i3wslist.sh,Move to Workspace:i3wsmove.sh' -show 'Move to Workspace'"
 
 # Run arbitrary i3 command (Super+Alt+Return)[Super+Alt+Return]
 bindcode Mod4+Mod1+36 exec ~/bin/i3_run -fn "$dmenufonttype" -nb "$c_dark_blue" -nf "$c_white" -sb "$c_neutral_blue" -sf "$c_black" -p "i3-msg"
