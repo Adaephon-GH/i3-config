@@ -474,6 +474,9 @@ workspace $ws32 output $DISP0
 
 workspace "monitor" output $DISP2
 
+#Make any window on workspaces with names ending in "/f" floating
+for_window [workspace="\^$"] floating enable
+
 # Client assignments to workspaces
 assign [class="^Firefox$"] $ws1
 assign [class="^Thunderbird$" window_role="^3pane$"] $ws2
