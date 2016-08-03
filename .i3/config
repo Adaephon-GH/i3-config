@@ -349,8 +349,6 @@ bindcode Mod4+163 mark Mail
 bindcode 163 [con_mark="Mail"] focus
 bindcode Mod4+164 mark Star
 bindcode 164 [con_mark="Star"] focus
-bindcode Mod4+148 mark Calc
-bindcode 148 [con_mark="Calc"] focus
 
 # Read 1 character and mark the current window with this character (Super+m)[Super+m]
 bindcode Mod4+58 exec --no-startup-id i3-input -F 'mark %s ' -l 1 -P 'Mark: '
@@ -417,6 +415,9 @@ bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK
 #bindsym Control+XF86AudioPlay exec clementine_CTRL.py osd
 #bindsym Control+XF86AudioRaiseVolume exec clementine_CTRL.py next
 #bindsym Control+XF86AudioLowerVolume exec clementine_CTRL.py previous
+
+# start zcalc in a terminal
+bindcode 148 exec ~/bin/tzcalc
 
 # switch keyboard layout to neo on MNEK4000 (Super+KP_()[Super+KP_(]
 bindcode 187 exec ~/bin/asdf

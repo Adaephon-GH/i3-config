@@ -1,0 +1,2 @@
+#!/bin/sh
+termite --role floating -e 'zsh -c "autoload -Uz zcalc; zcalc"'
