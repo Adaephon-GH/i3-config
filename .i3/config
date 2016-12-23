@@ -475,7 +475,7 @@ workspace $ws32 output $DISP0
 
 workspace "monitor" output $DISP2
 
-#Make any window on workspaces with names ending in "/f" floating
+#Make any window on workspaces with names ending in "^" floating
 for_window [workspace="\^$"] floating enable
 
 # Client assignments to workspaces
