@@ -285,7 +285,7 @@ bindcode Mod4+Shift+52 move scratchpad
 bindcode Mod4+52 scratchpad show
 
 # Move the current winow to where the last split was made (Super+Shift+m)[Super+Shift+m]
-bindcode Mod4+Shift+58 move window to mark lastsplit
+bindcode Mod4+57 move window to mark lastsplit
 
 # Mode for resizing clients
 set $mode_resize "resize"
@@ -350,11 +350,11 @@ bindcode 163 [con_mark="Mail"] focus
 bindcode Mod4+164 mark Star
 bindcode 164 [con_mark="Star"] focus
 
-# Read 1 character and mark the current window with this character (Super+m)[Super+m]
-bindcode Mod4+58 exec --no-startup-id i3-input -F 'mark %s ' -l 1 -P 'Mark: '
+# Read 1 character and mark the current window with this character (Super+Shift+m)[Super+Shift+m]
+bindcode Mod4+Shift+58 exec --no-startup-id i3-input -F 'mark %s ' -l 1 -P 'Mark: '
 
-# Read 1 character and go to the window with the character (Super+b)[Super+n]
-bindcode Mod4+57 exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+# Read 1 character and go to the window with the character (Super+m)[Super+m]
+bindcode Mod4+58 exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # Go to/create workspace with arbitrary name (Super+w)[Super+t]
 bindcode Mod4+28 exec --no-startup-id "rofi -modi 'Workspace:i3wslist.sh,Move to Workspace:i3wsmove.sh' -show Workspace"
