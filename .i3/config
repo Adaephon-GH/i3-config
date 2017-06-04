@@ -574,6 +574,6 @@ for_window [class="^Thunderbird" window_role="^AlarmWindow$"] floating enable, s
 for_window [class="^Termite$" window_role="^floating$"] floating enable
 
 ## icons (kind of)
-for_window [class="^chromium$"] title_format <span size="small"> </span>%title
+for_window [instance="^chromium$"] title_format <span size="small"> </span>%title
 for_window [class="^Firefox$"] title_format <span size="small"> </span>%title
 for_window [class="^(Termite)$"] title_format <span size="small"> </span>%title
