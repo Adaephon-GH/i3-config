@@ -1,9 +1,10 @@
 ## comments for keybindings indicate keys on two layouts:
 ## (de neo)[de nodeadkeys]
 
-set $fonttype "pango:monofur for Powerline, FontAwesome 11"
+set $fonttype "pango:monofur for Powerline, Font Awesome 5 Free, Font Awesome 5 Free Solid, Font Awesome 5 Brands 11"
 font $fonttype
 set $dmenufonttype monofurforPowerline-11
+set $statuscommand i3status
 
 # Displays
 set $DISP0 DP-0
@@ -26,7 +27,7 @@ set $ws12 "12"
 set $ws13 "13:"
 set $ws14 "14"
 set $ws15 "15"
-set $ws16 "16:"
+set $ws16 "16"
 set $ws17 "17"
 set $ws18 "18"
 set $ws19 "19"
@@ -36,6 +37,7 @@ set $ws22 "22"
 set $ws23 "23"
 set $ws24 "24"
 set $ws32 "32:"
+set $wsmus ""
 set $wsh " "
 set $wshh "  "
 
@@ -96,10 +98,13 @@ workspace_auto_back_and_forth yes
 #hide_edge_borders vertical
 
 # keep focus within current container 
-force_focus_wrapping yes
+force_focus_wrapping no
 
 # disable auto focus
 #focus_follows_mouse no
+
+# mouse follows outputs
+mouse_warping none
 
 ### KEYBOARD COMMANDS ###
 
@@ -323,7 +328,7 @@ mode $mode_resize {
 bindcode Mod4+43 mode $mode_resize
 
 # Mode which deaktivates all bindings
-set mode_passthrough "passthrough"
+set $mode_passthrough "passthrough"
 mode $mode_passthrough {
     bindcode Mod4+9 mode "default"
 }
@@ -350,11 +355,17 @@ bindcode 163 [con_mark="Mail"] focus
 bindcode Mod4+164 mark Star
 bindcode 164 [con_mark="Star"] focus
 
-# Read 1 character and mark the current window with this character (Super+Shift+m)[Super+Shift+m]
-bindcode Mod4+Shift+58 exec --no-startup-id i3-input -F 'mark %s ' -l 1 -P 'Mark: '
+# Read 1 character and add it as a mark to the current window (Super+Shift+m)[Super+Shift+m]
+bindcode Mod4+Shift+58 exec --no-startup-id i3-input -F 'mark --add %s' -l 1 -P 'add mark: '
 
-# Read 1 character and go to the window with the character (Super+m)[Super+m]
-bindcode Mod4+58 exec --no-startup-id i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+# Read 1 character and replace the marks on the current window with it (Super+Control+m)[Super+Control+m]
+bindcode Mod4+Control+58 exec --no-startup-id i3-input -F 'mark %s' -l 1 -P 'mark: '
+
+# Read 1 character and remove it as mark (Super+Control+Shift+m)[Super+Control+Shift+m]
+bindcode Mod4+Control+Shift+58 exec --no-startup-id i3-input -F 'unmark %s' -l 1 -P 'unmark: '
+
+# Read 1 character and go to the window this mark (Super+m)[Super+m]
+bindcode Mod4+58 exec --no-startup-id i3-input -F '[con_mark="^%s$"] focus' -l 1 -P 'goto: '
 
 # Go to/create workspace with arbitrary name (Super+w)[Super+t]
 bindcode Mod4+28 exec --no-startup-id "rofi -modi 'Workspace:i3wslist.sh,Move to Workspace:i3wsmove.sh' -show Workspace"
@@ -393,21 +404,24 @@ bindcode Mod4+Shift+96 exec --no-startup-id ~/bin/Shutdown.sh
 bindcode Mod4+Shift+43 exec --no-startup-id python ~/bin/i3/sortcontainer.py
 
 # Toggle Mute, LowerVol, RaiseVol XF86Audio{Mute,LowerVolume,RaiseVolume} or Mod4+{End,Prior,Next} [Pulseaudio]
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 $statuscommand
 # (Super+End)[Super+End]
-bindcode Mod4+115 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 i3status
+bindcode Mod4+115 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 $statuscommand
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 $statuscommand
 # (Super+PgDown)[Super+PgDown]
-bindcode Mod4+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 i3status
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 i3status
+bindcode Mod4+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 $statuscommand
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 $statuscommand
 # (Super+Shift+PgDown)[Super+Shift+PgDown]
-bindcode Mod4+Shift+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 i3status
+bindcode Mod4+Shift+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 $statuscommand
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 $statuscommand
 # (Super+PgUp)[Super+PgUp]
-bindcode Mod4+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 i3status
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 i3status
+bindcode Mod4+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 $statuscommand
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 $statuscommand
 # (Super+Shift+PgUp)[Super+Shift+PgUp]
-bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 i3status
+bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 $statuscommand
+
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 
 # clementine Remote control
 #bindsym XF86AudioPlay exec clementine_CTRL.py pause
@@ -479,15 +493,19 @@ workspace "monitor" output $DISP2
 for_window [workspace="\^$"] floating enable
 
 # Client assignments to workspaces
-assign [class="^Firefox$"] $ws1
+assign [instance="^Navigator$" class="^Firefox"] $ws1
 assign [class="^Thunderbird$" window_role="^3pane$"] $ws2
 assign [class="^Pidgin$"] $ws3
+assign [class="^Cutegram$"] $ws3
+assign [class="^TelegramDesktop$"] $ws3
 assign [class="HipChat"] $ws3
-assign [class="^Clementine$"] $ws16
+assign [class="^Clementine$"] $wsmus
 assign [class="^Vmware$"] $ws16
 #assign [class="jetbrains-pycharm" title="(Find|Changes)"] $ws32
 #assign [class="jetbrains-pycharm"] $ws8
-assign [class="^nuvolaplayer"] $ws16
+assign [class="^nuvolaplayer"] $wsmus
+assign [class="^Chromium" instance="^music.amazon.de"] $wsmus
+assign [class="^eu.tiliado"] $wsmus
 
 #### I3BAR SETTINGS ####
 
@@ -497,7 +515,7 @@ bar {
     tray_output $DISP0
     tray_padding 0
     output $DISP0
-    status_command i3status --config ~/.i3/i3status.clock.conf
+    status_command $statuscommand --config ~/.i3/i3status.clock.conf
     colors {
         background          $c_dark_grey
         statusline          $c_bright_grey
@@ -516,7 +534,7 @@ bar {
     id right-bar
     tray_output None
     output $DISP1
-    status_command i3status --config ~/.i3/i3status.conf
+    status_command $statuscommand --config ~/.i3/i3status.conf
     colors {
         background          $c_dark_grey
         statusline          $c_bright_grey
@@ -556,7 +574,6 @@ exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id ~/bin/start_xautolock.sh
 exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
 exec --no-startup-id solaar
-exec --no-startup-id pidgin
 exec --no-startup-id HipChat4
 exec --no-startup-id dunst
 exec --no-startup-id unclutter --timeout 3 -b
@@ -565,9 +582,15 @@ exec --no-startup-id unclutter --timeout 3 -b
 
 for_window [class="^rdesktop$"] floating enable
 for_window [class="^xfreerdp"] floating enable
+for_window [class="^Gvncviewer"] floating enable
 for_window [title="^Event Tester$"] floating enable
+for_window [title="^gcolor2$"] floating enable
+for_window [title="^Eschalon: Book I$"] floating enable
+for_window [title="^Unlock Keyring$"] floating enable
+for_window [title="^Unlock Keyring$"] focus
 for_window [class="jetbrains-pycharm" title="(Find|Changes)"] floating disable
 for_window [title="^Add Host\(s\) or Cluster\(s\)"] floating enable
+for_window [title="^Confirm Navigation$"] floating enable
 for_window [class="^nuvolaplayer"] floating enable
 for_window [class="^Thunderbird" window_role="^AlarmWindow$"] floating enable, sticky enable
 
