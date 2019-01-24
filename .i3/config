@@ -322,6 +322,18 @@ mode $mode_resize {
 # Enter resize mode (Super+s)[Super+h]
 bindcode Mod4+43 mode $mode_resize
 
+# Mode for switching focus
+set $FocusMode "focus"
+mode $FocusMode {
+    bindsym Left focus left; exec mode_tracker.sh $FocusMode
+    bindsym Right focus right; exec mode_tracker.sh $FocusMode
+    bindsym Up focus up; exec mode_tracker.sh $FocusMode
+    bindsym Down focus down; exec mode_tracker.sh $FocusMode
+    bindsym Escape mode default
+}
+# Enter focus mode (Super+Alt+Ctrl+m)[Super+Alt+Ctrl+m]
+bindcode Mod4+Mod1+Ctrl+58 mode $FocusMode; exec mode_tracker.sh $FocusMode
+
 # Mode which deaktivates all bindings
 set mode_passthrough "passthrough"
 mode $mode_passthrough {
