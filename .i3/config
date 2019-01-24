@@ -3,7 +3,8 @@
 
 set $fonttype "pango:monofur for Powerline, FontAwesome 11"
 font $fonttype
-set $dmenufonttype monofurforPowerline-11
+set $dmenufonttype monofurforPowerline-10
+set $statuscommand i3status
 
 # Displays
 set $DISP0 DP-0
@@ -287,6 +288,15 @@ bindcode Mod4+Shift+52 move scratchpad
 # Scratchpad show (Super+ü)[Super+y]
 bindcode Mod4+52 scratchpad show
 
+# Mark window as "*" (Super+Shift+z)[Super+Shift+b]
+bindcode Mod4+Shift+56 mark --add "*"
+# swap window with "*" and make it new "*", mark old "*" as "-"(Super+z)[Super+b]
+bindcode Mod4+56 [con_mark="^\*$"] mark --add "-"; swap container with mark "*"; mark --add "*"
+# swap marks "*" and "-"(Super+Alt+z)[Super+Alt+b]
+bindcode Mod4+Mod1+56 [con_mark="\*$"] mark --add "_old*"; [con_mark="^-$"] swap container with mark "*", mark --add "*", focus; [con_mark="^_old\*$"] mark --add "-", unmark "_old*"  
+# unmark "*"  (Super+Control+Shift+z)[Super+Control+Shift+b]
+bindcode Mod4+Control+Shift+56 unmark "*"
+
 # Move the current winow to where the last split was made (Super+Shift+m)[Super+Shift+m]
 bindcode Mod4+57 move window to mark lastsplit
 
@@ -414,21 +424,24 @@ bindcode Mod4+Shift+96 exec --no-startup-id ~/bin/Shutdown.sh
 bindcode Mod4+Shift+43 exec --no-startup-id python ~/bin/i3/sortcontainer.py
 
 # Toggle Mute, LowerVol, RaiseVol XF86Audio{Mute,LowerVolume,RaiseVolume} or Mod4+{End,Prior,Next} [Pulseaudio]
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 $statuscommand
 # (Super+End)[Super+End]
-bindcode Mod4+115 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 i3status
+bindcode Mod4+115 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 $statuscommand
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 $statuscommand
 # (Super+PgDown)[Super+PgDown]
-bindcode Mod4+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 i3status
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 i3status
+bindcode Mod4+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 $statuscommand
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 $statuscommand
 # (Super+Shift+PgDown)[Super+Shift+PgDown]
-bindcode Mod4+Shift+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 i3status
+bindcode Mod4+Shift+117 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && killall -SIGUSR1 $statuscommand
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 $statuscommand
 # (Super+PgUp)[Super+PgUp]
-bindcode Mod4+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 i3status
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 i3status
+bindcode Mod4+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 $statuscommand
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 $statuscommand
 # (Super+Shift+PgUp)[Super+Shift+PgUp]
-bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 i3status
+bindcode Mod4+Shift+112 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && killall -SIGUSR1 $statuscommand
+
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 
 # clementine Remote control
 #bindsym XF86AudioPlay exec clementine_CTRL.py pause
@@ -505,7 +518,7 @@ workspace "monitor" output $DISP2
 for_window [workspace="\^$"] floating enable
 
 # Client assignments to workspaces
-assign [class="^Firefox$"] $ws1
+assign [instance="^Navigator$" class="^Firefox"] $ws1
 assign [class="^Thunderbird$" window_role="^3pane$"] $ws2
 assign [class="^Pidgin$"] $ws3
 assign [class="HipChat"] $ws3
