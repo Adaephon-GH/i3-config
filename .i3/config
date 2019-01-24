@@ -101,6 +101,9 @@ focus_wrapping yes
 # disable auto focus
 #focus_follows_mouse no
 
+# mouse follows outputs
+mouse_warping none
+
 ### KEYBOARD COMMANDS ###
 
 # split and mark (Super+v/h)[Super+w/u]
@@ -335,7 +338,7 @@ mode $FocusMode {
 bindcode Mod4+Mod1+Ctrl+58 mode $FocusMode; exec mode_tracker.sh $FocusMode
 
 # Mode which deaktivates all bindings
-set mode_passthrough "passthrough"
+set $mode_passthrough "passthrough"
 mode $mode_passthrough {
     bindcode Mod4+9 mode "default"
 }
@@ -443,6 +446,9 @@ bindcode 187 exec ~/bin/asdf
 # switch keyboard layout to de on MNEK4000 (Super+KP_))[Super+KP_)]
 bindcode 188 exec ~/bin/uiae
 
+# start keepassxc (Super+k)[Super+z]
+bindcode Mod4+29 exec keepassxc
+
 # place mouse cursor in upper left corner of the window (Super+x)[Super+q]
 bindcode Mod4+24 exec xdotool getactivewindow mousemove -w '%1' 0 0
 
@@ -458,6 +464,8 @@ bindcode Mod4+Control+22 restart
 
 # Exit i3 (Super+Control+Shift+Backspace)[Super+Control+Shift+Backspace]
 bindcode Mod4+Control+Shift+22 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -f '$dmenufonttype'"
+
+bindsym Pause exec ~/bin/toggle_tp.sh
 
 #### WORKSPACE SETTINGS ####
 
