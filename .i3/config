@@ -1,15 +1,26 @@
 ## comments for keybindings indicate keys on two layouts:
 ## (de neo)[de nodeadkeys]
 
-set $fonttype "pango:monofur for Powerline, FontAwesome 11"
+set $fonttype "pango:monofur for Powerline, Font Awesome 5 Free, Font Awesome 5 Free Solid, Font Awesome 5 Brands 12"
 font $fonttype
 set $dmenufonttype monofurforPowerline-10
-set $statuscommand i3status
+set $statuscommand py3status
 
 # Displays
-set $DISP0 DP-0
-set $DISP1 DP-3
-set $DISP2 DP-0
+# Laptop
+set $DISP0 DP-3
+# Left
+# set $DISP2 DP-4.1.1.1
+set $DISP3 DP-4.1.1
+# set $DISP2 DP-4
+# Middle
+# set $DISP1 DP-4.1.1.8
+set $DISP1 DP-4.1.8
+# set $DISP1 DP-4
+# Right
+# set $DISP3 DP-4.1.8
+set $DISP2 DP-4.8
+# set $DISP3 DP-4
 
 # Workspaces
 set $ws1 "1:"
@@ -24,10 +35,10 @@ set $ws9 "9:"
 set $ws10 "10:"
 set $ws11 "11"
 set $ws12 "12"
-set $ws13 "13:"
+set $ws13 "13"
 set $ws14 "14"
 set $ws15 "15"
-set $ws16 "16:"
+set $ws16 "16"
 set $ws17 "17"
 set $ws18 "18"
 set $ws19 "19"
@@ -35,8 +46,9 @@ set $ws20 "20"
 set $ws21 "21"
 set $ws22 "22"
 set $ws23 "23"
-set $ws24 "24"
+set $ws24 "24:"
 set $ws32 "32:"
+set $wsmus ""
 set $wsh " "
 set $wshh "  "
 
@@ -180,18 +192,21 @@ bindcode Mod4+Control+46 move output right
 bindsym Mod4+Control+Left move output left
 bindsym Mod4+Control+Right move output right
 
-# Direct access to outputs (Super+i/a/e)[Super+s/d/f]
-bindcode Mod4+39 focus output $DISP2
-bindcode Mod4+40 focus output $DISP0
-bindcode Mod4+41 focus output $DISP1
+# Direct access to outputs (Super+i/a/e/ä)[Super+s/d/f/c]
+bindcode Mod4+54 focus output $DISP0
+bindcode Mod4+39 focus output $DISP3
+bindcode Mod4+40 focus output $DISP1
+bindcode Mod4+41 focus output $DISP2
 # Move container to specific output (Super+Shift+i/a/e)[Super+Shift+s/d/f]
-bindcode Mod4+Shift+39 move container to output $DISP2
-bindcode Mod4+Shift+40 move container to output $DISP0
-bindcode Mod4+Shift+41 move container to output $DISP1
+bindcode Mod4+Shift+54 move container to output $DISP0
+bindcode Mod4+Shift+39 move container to output $DISP3
+bindcode Mod4+Shift+40 move container to output $DISP1
+bindcode Mod4+Shift+41 move container to output $DISP2
 # Move workspace to specific output (Super+Alt+i/a/e)[Super+Alt+s/d/f]
-bindcode Mod4+Mod1+39 move workspace to output $DISP2
-bindcode Mod4+Mod1+40 move workspace to output $DISP0
-bindcode Mod4+Mod1+41 move workspace to output $DISP1
+bindcode Mod4+Mod1+54 move workspace to output $DISP0
+bindcode Mod4+Mod1+39 move workspace to output $DISP3
+bindcode Mod4+Mod1+40 move workspace to output $DISP1
+bindcode Mod4+Mod1+41 move workspace to output $DISP2
 
 # Move (Super+Shift+g/n/r/t)[Super+Shift+i/j/k/l]
 bindcode Mod4+Shift+31 move up
@@ -297,7 +312,7 @@ bindcode Mod4+Mod1+56 [con_mark="\*$"] mark --add "_old*"; [con_mark="^-$"] swap
 # unmark "*"  (Super+Control+Shift+z)[Super+Control+Shift+b]
 bindcode Mod4+Control+Shift+56 unmark "*"
 
-# Move the current winow to where the last split was made (Super+Shift+m)[Super+Shift+m]
+# Move the current winow to where the last split was made (Super+Shift+b)[Super+Shift+n]
 bindcode Mod4+57 move window to mark lastsplit
 
 # Mode for resizing clients
@@ -413,7 +428,7 @@ bindcode Mod4+Shift+55 exec --no-startup-id ~/bin/emenu_run -fn "$dmenufonttype"
 # Start rofi (Super+p)[Super+v]
 bindcode Mod4+55 exec --no-startup-id rofi -show run
 # Start rofi (Super+ä)[Super+c]
-bindcode Mod4+54 exec --no-startup-id rofi -show ssh
+#bindcode Mod4+54 exec --no-startup-id rofi -show ssh
 # Start rofi (Super+ö)[Super+x]
 bindcode Mod4+53 exec --no-startup-id rofi -show window
 
@@ -483,60 +498,69 @@ bindsym Pause exec ~/bin/toggle_tp.sh
 #### WORKSPACE SETTINGS ####
 
 # Workspace assignment to displays
-workspace $ws1 output $DISP0
+workspace $ws1 output $DISP3
 workspace $ws2 output $DISP0
 workspace $ws3 output $DISP0
-workspace $ws4 output $DISP0
-workspace $ws5 output $DISP0
-workspace $ws6 output $DISP0
 workspace $ws11 output $DISP0
 workspace $ws12 output $DISP0
 workspace $ws13 output $DISP0
-workspace $ws14 output $DISP0
-workspace $ws15 output $DISP0
-workspace $ws16 output $DISP0
-workspace $wsh output $DISP0
 
+workspace $ws4 output $DISP1
+workspace $ws5 output $DISP1
+workspace $ws6 output $DISP1
 workspace $ws7 output $DISP1
 workspace $ws8 output $DISP1
 workspace $ws9 output $DISP1
-workspace $ws10 output $DISP1
-workspace $ws21 output $DISP1
-workspace $ws22 output $DISP1
+workspace $ws14 output $DISP1
+workspace $ws15 output $DISP1
+workspace $ws16 output $DISP1
 workspace $ws17 output $DISP1
 workspace $ws18 output $DISP1
 workspace $ws19 output $DISP1
-workspace $ws20 output $DISP1
-workspace $ws23 output $DISP1
-workspace $ws24 output $DISP1
 
-workspace $ws32 output $DISP0
+workspace $ws10 output $DISP2
+workspace $ws21 output $DISP2
+workspace $ws22 output $DISP2
+workspace $ws20 output $DISP2
+workspace $ws23 output $DISP2
+workspace $ws24 output $DISP2
 
-workspace "monitor" output $DISP2
+workspace $ws32 output $DISP2
+
+workspace $wsh output $DISP0
+
+workspace "monitor" output $DISP3
+# workspace ">λ=" output $DISP3
+workspace $wsmus output $DISP3
 
 #Make any window on workspaces with names ending in "^" floating
 for_window [workspace="\^$"] floating enable
 
 # Client assignments to workspaces
-assign [instance="^Navigator$" class="^Firefox"] $ws1
+assign [instance="^Navigator$" class="^firefox"] $ws1
 assign [class="^Thunderbird$" window_role="^3pane$"] $ws2
 assign [class="^Pidgin$"] $ws3
+assign [class="^Cutegram$"] $ws3
+assign [class="^TelegramDesktop$"] $ws3
 assign [class="HipChat"] $ws3
-assign [class="^Clementine$"] $ws16
+assign [class="Slack"] $ws3
+assign [class="^Clementine$"] $wsmus
 assign [class="^Vmware$"] $ws16
 #assign [class="jetbrains-pycharm" title="(Find|Changes)"] $ws32
 #assign [class="jetbrains-pycharm"] $ws8
-assign [class="^nuvolaplayer"] $ws16
+assign [class="^nuvolaplayer"] $wsmus
+assign [class="^Chromium" instance="^music.amazon.de"] $wsmus
+assign [class="^eu.tiliado"] $wsmus
 
 #### I3BAR SETTINGS ####
 
-# left bar
+
 bar {
-    id left-bar
-    tray_output $DISP0
+    id middle-bar
+    tray_output None
     tray_padding 0
-    output $DISP0
-    status_command i3status --config ~/.i3/i3status.clock.conf
+    output $DISP1
+    status_command $statuscommand --config ~/.i3/i3status.conf
     colors {
         background          $c_dark_grey
         statusline          $c_bright_grey
@@ -548,14 +572,16 @@ bar {
         urgent_workspace    $c_bright_red       $c_neutral_red      $c_white
         binding_mode        $c_neutral_aqua     $c_dark_aqua        $c_white
     }
+    position top
 }
 
-# middle bar
+
 bar {
     id right-bar
     tray_output None
-    output $DISP1
-    status_command i3status --config ~/.i3/i3status.conf
+    tray_padding 0
+    output $DISP2
+    status_command $statuscommand --config ~/.i3/i3status.clock.conf
     colors {
         background          $c_dark_grey
         statusline          $c_bright_grey
@@ -567,52 +593,83 @@ bar {
         urgent_workspace    $c_bright_red       $c_neutral_red      $c_white
         binding_mode        $c_neutral_aqua     $c_dark_aqua        $c_white
     }
+    position top
 }
 
-## right bar
-#bar {
-#    id extra-bar
-#    tray_output None
-#    output $DISP2
-#    colors {
-#        background          $c_dark_grey
-#        statusline          $c_bright_grey
-#        separator           $c_dark_blue
-#        # name              border              background          text
-#        focused_workspace   $c_dark_yellow      $c_neutral_yellow   $c_black
-#        active_workspace    $c_neutral_blue     $c_dark_blue        $c_white
-#        inactive_workspace  $c_neutral_grey     $c_dark_grey        $c_bright_grey
-#        urgent_workspace    $c_bright_red       $c_neutral_red      $c_white
-#        binding_mode        $c_bright_red       $c_neutral_red      $c_white
-#        binding_mode        $c_neutral_aqua     $c_dark_aqua        $c_white
-#    }
-#}
+
+bar {
+    id left-bar
+    tray_output None
+    tray_padding 0
+    output $DISP3
+    status_command $statuscommand --config ~/.i3/i3status.clock.conf
+    colors {
+        background          $c_dark_grey
+        statusline          $c_bright_grey
+        separator           $c_dark_blue
+        # name              border              background          text
+        focused_workspace   $c_neutral_orange   $c_bright_orange    $c_black
+        active_workspace    $c_neutral_blue     $c_dark_blue        $c_white
+        inactive_workspace  $c_neutral_grey     $c_dark_grey        $c_bright_grey
+        urgent_workspace    $c_bright_red       $c_neutral_red      $c_white
+        binding_mode        $c_neutral_aqua     $c_dark_aqua        $c_white
+    }
+    position top
+}
+
+
+bar {
+    id main-bar
+    tray_output $DISP0
+    tray_padding 0
+    output $DISP0
+    status_command $statuscommand --config ~/.i3/i3status.conf
+    colors {
+        background          $c_dark_grey
+        statusline          $c_bright_grey
+        separator           $c_dark_blue
+        # name              border              background          text
+        focused_workspace   $c_neutral_orange   $c_bright_orange    $c_black
+        active_workspace    $c_neutral_blue     $c_dark_blue        $c_white
+        inactive_workspace  $c_neutral_grey     $c_dark_grey        $c_bright_grey
+        urgent_workspace    $c_bright_red       $c_neutral_red      $c_white
+        binding_mode        $c_neutral_aqua     $c_dark_aqua        $c_white
+    }
+    position bottom
+}
 
 
 #### AUTOSTART ####
 
-exec --no-startup-id sh ~/.fehbg
+# exec --no-startup-id sh ~/.fehbg
 exec --no-startup-id ~/bin/start_xautolock.sh
 exec --no-startup-id xmodmap ~/neo_mmk_ic.xmodmap && xset -r 135
 exec --no-startup-id solaar
-exec --no-startup-id pidgin
-exec --no-startup-id HipChat4
+# exec --no-startup-id pidgin
+# exec --no-startup-id HipChat4
 exec --no-startup-id dunst
 exec --no-startup-id unclutter --timeout 3 -b
+exec --no-startup-id compton -b
 
 #### SETTINGS FOR SPECIFIC WINDOWS ####
 
 for_window [class="^rdesktop$"] floating enable
 for_window [class="^xfreerdp"] floating enable
+for_window [class="^Gvncviewer"] floating enable
 for_window [title="^Event Tester$"] floating enable
+for_window [title="^gcolor2$"] floating enable
+for_window [title="^Eschalon: Book I$"] floating enable
+for_window [title="^Unlock Keyring$"] floating enable
+for_window [title="^Unlock Keyring$"] focus
 for_window [class="jetbrains-pycharm" title="(Find|Changes)"] floating disable
 for_window [title="^Add Host\(s\) or Cluster\(s\)"] floating enable
+for_window [title="^Confirm Navigation$"] floating enable
 for_window [class="^nuvolaplayer"] floating enable
 for_window [class="^Thunderbird" window_role="^AlarmWindow$"] floating enable, sticky enable
 
-for_window [class="^Termite$" window_role="^floating$"] floating enable
+for_window [window_role="^floating$"] floating enable
 
 ## icons (kind of)
-for_window [instance="^chromium$"] title_format <span size="small"> </span>%title
-for_window [class="^Firefox$"] title_format <span size="small"> </span>%title
+for_window [class="^chromium$"] title_format <span size="small"> </span>%title
+for_window [class="^firefox$"] title_format <span size="small"> </span>%title
 for_window [class="^(Termite)$"] title_format <span size="small"> </span>%title
