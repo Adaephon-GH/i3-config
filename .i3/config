@@ -560,7 +560,7 @@ bar {
     tray_output None
     tray_padding 0
     output $DISP1
-    status_command $statuscommand --config ~/.i3/i3status.conf
+    status_command $statuscommand --config ~/.i3/py3status.conf
     colors {
         background          $c_dark_grey
         statusline          $c_bright_grey
@@ -581,7 +581,7 @@ bar {
     tray_output None
     tray_padding 0
     output $DISP2
-    status_command $statuscommand --config ~/.i3/i3status.clock.conf
+    status_command $statuscommand --config ~/.i3/py3status.clock.conf
     colors {
         background          $c_dark_grey
         statusline          $c_bright_grey
@@ -602,7 +602,7 @@ bar {
     tray_output None
     tray_padding 0
     output $DISP3
-    status_command $statuscommand --config ~/.i3/i3status.clock.conf
+    status_command $statuscommand --config ~/.i3/py3status.clock.conf
     colors {
         background          $c_dark_grey
         statusline          $c_bright_grey
@@ -623,7 +623,7 @@ bar {
     tray_output $DISP0
     tray_padding 0
     output $DISP0
-    status_command $statuscommand --config ~/.i3/i3status.conf
+    status_command $statuscommand --config ~/.i3/py3status.conf
     colors {
         background          $c_dark_grey
         statusline          $c_bright_grey
