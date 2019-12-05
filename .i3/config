@@ -649,7 +649,7 @@ exec --no-startup-id solaar
 # exec --no-startup-id HipChat4
 exec --no-startup-id dunst
 exec --no-startup-id unclutter --timeout 3 -b
-exec --no-startup-id compton -b
+exec --no-startup-id picom -b
 
 #### SETTINGS FOR SPECIFIC WINDOWS ####
 
